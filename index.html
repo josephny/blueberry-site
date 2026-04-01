@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blueberry Mountain Farms | Catskills Vacation Homes for Groups & Families</title>
+<meta name="description" content="Six beautiful vacation homes in the Catskills Mountains, sleeping 6 to 100 guests. Farm animals, hiking trails, firepits, blueberry picking. 90 minutes from NYC.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF7F2;
+  --warm-white: #FFFDF9;
+  --deep-green: #2C4A3E;
+  --forest: #3A6B5A;
+  --sage: #7A9E8E;
+  --gold: #C8A96E;
+  --gold-light: #E8D5A8;
+  --bark: #5C4A3A;
+  --charcoal: #2D2A26;
+  --text: #3D3832;
+  --text-light: #6B6560;
+  --berry: #6B4C6E;
+  --berry-light: #E8D5EA;
+  --sky: #A8C4D4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  font-weight: 400;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+nav.scrolled {
+  background: rgba(44,74,62,0.95);
+  backdrop-filter: blur(10px);
+  padding: 0.7rem 2rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  margin: 5px 0;
+  transition: all 0.3s;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 40%, rgba(44,74,62,0.6) 100%);
+  z-index: 1;
+}
+.hero-slides {
+  position: absolute;
+  inset: 0;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+  background-size: cover;
+  background-position: center;
+}
+.hero-slide.active { opacity: 1; }
+.hero-slide:nth-child(1) {
+  background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTk4MjY3MTY4MTEzMjUxMjk0/original/e3dd70be-d0ac-4c91-9c9e-0cc77a078610.jpeg?im_w=1200');
+}
+.hero-slide:nth-child(2) {
+  background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYxNzU2ODc%3D/original/56a73cef-1819-45f4-a537-cbc11f1b0176.jpeg?im_w=1200');
+}
+.hero-slide:nth-child(3) {
+  background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/502e3356-7efa-4046-bbc6-3f20c3cddc65.jpeg?im_w=1200');
+}
+.hero-slide:nth-child(4) {
+  background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/cdceba34-c2bf-45e7-ba53-7ee4bb8e707f.jpeg?im_w=1200');
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 2rem;
+  animation: fadeUp 1.2s ease both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-tag {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1.2rem;
+}
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.3);
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+.hero-sub {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  opacity: 0.92;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+.hero-stat {
+  text-align: center;
+}
+.hero-stat .number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  display: block;
+}
+.hero-stat .label {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.hero-cta {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--gold);
+  color: white;
+}
+.btn-primary:hover {
+  background: #b89a5e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(200,169,110,0.4);
+}
+.btn-outline {
+  background: transparent;
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.6);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: white;
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  animation: bounce 2s ease infinite;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+.hero-scroll svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.6); }
+
+/* ===== SECTIONS ===== */
+section { padding: 6rem 2rem; }
+.section-tag {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 0.8rem;
+}
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--deep-green);
+  margin-bottom: 1rem;
+}
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  max-width: 600px;
+  font-weight: 300;
+  line-height: 1.7;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ===== PROPERTIES ===== */
+#properties { background: var(--warm-white); }
+.properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+.property-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.property-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+}
+.property-gallery {
+  position: relative;
+  height: 260px;
+  overflow: hidden;
+}
+.property-gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.property-gallery img.active { opacity: 1; }
+.gallery-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+.gallery-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.3s;
+  border: none;
+}
+.gallery-dot.active { background: white; }
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.85);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+  font-size: 1rem;
+  color: var(--charcoal);
+}
+.property-card:hover .gallery-nav { opacity: 1; }
+.gallery-nav.prev { left: 10px; }
+.gallery-nav.next { right: 10px; }
+.property-rating {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.92);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.property-rating svg { width: 14px; height: 14px; fill: var(--gold); }
+
+.property-info { padding: 1.5rem; }
+.property-name {
+  font-size: 1.4rem;
+  color: var(--deep-green);
+  margin-bottom: 0.4rem;
+}
+.property-specs {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+.property-desc {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 1.2rem;
+}
+.property-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+.highlight-tag {
+  background: var(--cream);
+  color: var(--forest);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.property-cta {
+  display: flex;
+  gap: 0.8rem;
+}
+.property-cta .btn {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.8rem;
+  flex: 1;
+  text-align: center;
+}
+.btn-green {
+  background: var(--deep-green);
+  color: white;
+}
+.btn-green:hover {
+  background: var(--forest);
+  transform: translateY(-1px);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--deep-green);
+  border: 1.5px solid var(--sage);
+}
+.btn-ghost:hover { background: rgba(122,158,142,0.08); }
+
+/* ===== GROUP BOOKING ===== */
+#groups {
+  background: var(--deep-green);
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+#groups::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(200,169,110,0.1) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.group-header { margin-bottom: 3rem; }
+.group-header .section-tag { color: var(--gold-light); }
+.group-header .section-title { color: white; }
+.group-header .section-subtitle { color: rgba(255,255,255,0.7); }
+
+.group-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.group-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: background 0.3s;
+}
+.group-card:hover { background: rgba(255,255,255,0.1); }
+.group-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.3rem;
+  color: var(--gold-light);
+}
+.group-card .sleeps {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 0.5rem;
+}
+.group-card p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.6;
+}
+
+.group-combos {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+.group-combos h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+.combo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  flex-wrap: wrap;
+}
+.combo:last-child { border-bottom: none; }
+.combo-houses {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+  flex: 1;
+}
+.combo-total {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  white-space: nowrap;
+}
+.combo-plus { color: var(--gold); font-weight: 700; }
+
+.group-cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ===== TESTIMONIALS ===== */
+#testimonials {
+  background: var(--cream);
+  position: relative;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.testimonial {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+  position: relative;
+}
+.testimonial::before {
+  content: '\201C';
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  color: var(--gold-light);
+  position: absolute;
+  top: 0.5rem;
+  left: 1.2rem;
+  line-height: 1;
+}
+.testimonial-text {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text);
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+  font-style: italic;
+}
+.testimonial-stars {
+  color: var(--gold);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+}
+.testimonial-source {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 500;
+}
+.testimonial-house {
+  font-size: 0.78rem;
+  color: var(--sage);
+}
+.overall-rating {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding: 1.5rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+  flex-wrap: wrap;
+}
+.overall-rating .big-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--deep-green);
+}
+.overall-rating .rating-detail {
+  flex: 1;
+}
+.overall-rating .stars { color: var(--gold); font-size: 1.2rem; letter-spacing: 3px; }
+.overall-rating p {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-top: 0.3rem;
+}
+.badge-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.badge {
+  background: var(--cream);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--deep-green);
+}
+
+/* ===== EXPERIENCE ===== */
+#experience { background: var(--warm-white); }
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+.exp-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+}
+.exp-card:hover { transform: translateY(-3px); }
+.exp-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.exp-card h4 {
+  font-size: 1.15rem;
+  color: var(--deep-green);
+  margin-bottom: 0.5rem;
+}
+.exp-card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* ===== CONTACT / INQUIRY ===== */
+#contact {
+  background: var(--cream);
+}
+.contact-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-top: 3rem;
+  align-items: start;
+}
+.contact-info h3 {
+  font-size: 1.5rem;
+  color: var(--deep-green);
+  margin-bottom: 1rem;
+}
+.contact-info p {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+.contact-detail svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--forest);
+  flex-shrink: 0;
+}
+.contact-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.form-group {
+  margin-bottom: 1.2rem;
+}
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  transition: border-color 0.3s;
+  background: var(--warm-white);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--forest);
+}
+.form-group textarea { resize: vertical; min-height: 100px; }
+.form-submit {
+  width: 100%;
+  padding: 1rem;
+  background: var(--deep-green);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-family: 'Source Sans 3', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.form-submit:hover { background: var(--forest); }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--charcoal);
+  color: rgba(255,255,255,0.6);
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.footer-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+.footer-tagline {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold-light); }
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.footer-social a {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: all 0.3s;
+  font-size: 1.1rem;
+}
+.footer-social a:hover {
+  border-color: var(--gold);
+  color: var(--gold-light);
+}
+.footer-copy {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(44,74,62,0.97);
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+  }
+  .nav-toggle { display: block; }
+  .properties-grid { grid-template-columns: 1fr; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 1.5rem; }
+  .form-row { grid-template-columns: 1fr; }
+  section { padding: 4rem 1.5rem; }
+  .group-combos { padding: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.2rem; }
+  .properties-grid { grid-template-columns: 1fr; }
+  .experience-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Blueberry Mountain Farms</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#properties">Our Homes</a></li>
+    <li><a href="#groups">Group Stays</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#experience">Things to Do</a></li>
+    <li><a href="#contact">Inquire</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Sullivan County Catskills &middot; 90 Minutes from NYC</div>
+    <h1>Bring <em>everyone</em> you love to the mountains</h1>
+    <p class="hero-sub">Six beautiful homes on a 300-acre family farm in the Catskills.<br>Reunions, celebrations, and getaways for groups of 6 to 100.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="number">6</span><span class="label">Homes</span></div>
+      <div class="hero-stat"><span class="number">29</span><span class="label">Bedrooms</span></div>
+      <div class="hero-stat"><span class="number">80+</span><span class="label">Guests</span></div>
+      <div class="hero-stat"><span class="number">4.96</span><span class="label">Avg Rating</span></div>
+    </div>
+    <div class="hero-cta">
+      <a href="#properties" class="btn btn-primary">Explore Our Homes</a>
+      <a href="#contact" class="btn btn-outline">Plan a Group Stay</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="7 13 12 18 17 13"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
+  </div>
+</section>
+
+<!-- PROPERTIES -->
+<section id="properties">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Our Homes</div>
+      <h2 class="section-title">Six homes, one unforgettable stay</h2>
+      <p class="section-subtitle">All within three miles of each other on quiet country roads in Mountain Dale and Greenfield Park.</p>
+    </div>
+
+    <div class="properties-grid">
+
+      <!-- MANOR -->
+      <div class="property-card reveal">
+        <div class="property-gallery" data-gallery>
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTk4MjY3MTY4MTEzMjUxMjk0/original/e3dd70be-d0ac-4c91-9c9e-0cc77a078610.jpeg?im_w=720" alt="Blueberry Manor exterior" class="active">
+          <img src="https://a0.muscache.com/im/pictures/33bb3acc-d5b6-4fab-868b-9f7fc1b5d467.jpg?im_w=720" alt="Manor living room">
+          <img src="https://a0.muscache.com/im/pictures/3bebeb4e-efad-4f6b-9c4d-52bda90beb5b.jpg?im_w=720" alt="Manor dining room">
+          <img src="https://a0.muscache.com/im/pictures/0ff6e61a-cf34-448a-a51a-1073fff84f86.jpg?im_w=720" alt="Manor kitchen">
+          <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.98</div>
+          <div class="gallery-dots"></div>
+          <button class="gallery-nav prev">&lsaquo;</button>
+          <button class="gallery-nav next">&rsaquo;</button>
+        </div>
+        <div class="property-info">
+          <h3 class="property-name">Blueberry Manor</h3>
+          <div class="property-specs">7 bedrooms &middot; 15 beds &middot; 3.5 baths &middot; Sleeps 20</div>
+          <p class="property-desc">Luxurious, totally renovated home with a 30-foot living room, gourmet kitchen, dining for 18, wraparound porch, and third-floor lounge. Wheelchair accessible first floor.</p>
+          <div class="property-highlights">
+            <span class="highlight-tag">Central AC</span>
+            <span class="highlight-tag">Ping Pong</span>
+            <span class="highlight-tag">Fire Pit</span>
+            <span class="highlight-tag">Top 5% on Airbnb</span>
+          </div>
+          <div class="property-cta">
+            <a href="https://airbnb.com/h/blueberrymanor" target="_blank" class="btn btn-green">Book on Airbnb</a>
+            <a href="#contact" class="btn btn-ghost">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- FARMHOUSE -->
+      <div class="property-card reveal">
+        <div class="property-gallery" data-gallery>
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYxNzU2ODc%3D/original/56a73cef-1819-45f4-a537-cbc11f1b0176.jpeg?im_w=720" alt="Blueberry Farmhouse" class="active">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-46175687/original/ed802933-655a-4552-af54-f911f60b99d4.jpeg?im_w=720" alt="Farmhouse interior">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-46175687/original/0f613b37-a8b5-450f-8843-574a121b6e52.jpeg?im_w=720" alt="Farmhouse kitchen">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-46175687/original/e2c6f2bf-9aee-484f-89d6-a8c44ca5e360.jpeg?im_w=720" alt="Farmhouse bedroom">
+          <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.94</div>
+          <div class="gallery-dots"></div>
+          <button class="gallery-nav prev">&lsaquo;</button>
+          <button class="gallery-nav next">&rsaquo;</button>
+        </div>
+        <div class="property-info">
+          <h3 class="property-name">Blueberry Farmhouse</h3>
+          <div class="property-specs">7 bedrooms &middot; 16 beds &middot; 4.5 baths &middot; Sleeps 24</div>
+          <p class="property-desc">Four separate living areas make this ideal for multiple families. Each unit has its own kitchen, bathroom, and living space. On the farm with animals visible from the house.</p>
+          <div class="property-highlights">
+            <span class="highlight-tag">4 Separate Units</span>
+            <span class="highlight-tag">On the Farm</span>
+            <span class="highlight-tag">Fire Pit</span>
+            <span class="highlight-tag">Top 1% on Airbnb</span>
+          </div>
+          <div class="property-cta">
+            <a href="https://airbnb.com/h/blueberryfarm" target="_blank" class="btn btn-green">Book on Airbnb</a>
+            <a href="#contact" class="btn btn-ghost">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- POND -->
+      <div class="property-card reveal">
+        <div class="property-gallery" data-gallery>
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/502e3356-7efa-4046-bbc6-3f20c3cddc65.jpeg?im_w=720" alt="Blueberry Pond House" class="active">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-875513415730440149/original/efdc4bed-c236-40de-a1f2-5b052ef89a2d.jpeg?im_w=720" alt="Pond house interior">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/67ebf379-f46a-4dfa-bd7c-b6643040b941.jpeg?im_w=720" alt="Pond house dining">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-875513415730440149/original/d2f259e9-0ed9-43a2-99ea-0cce5b99ef94.jpeg?im_w=720" alt="Pond house bedroom">
+          <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.92</div>
+          <div class="gallery-dots"></div>
+          <button class="gallery-nav prev">&lsaquo;</button>
+          <button class="gallery-nav next">&rsaquo;</button>
+        </div>
+        <div class="property-info">
+          <h3 class="property-name">Blueberry Pond</h3>
+          <div class="property-specs">6 bedrooms &middot; 10 beds &middot; 2.5 baths &middot; Sleeps 14</div>
+          <p class="property-desc">Beautifully renovated farmhouse with a hidden pond through the woods. Enormous yard with swing, hammock, and fire pit. Walking distance to the farm.</p>
+          <div class="property-highlights">
+            <span class="highlight-tag">Private Pond</span>
+            <span class="highlight-tag">65" TV</span>
+            <span class="highlight-tag">Washer/Dryer</span>
+            <span class="highlight-tag">Fire Pit</span>
+          </div>
+          <div class="property-cta">
+            <a href="https://airbnb.com/h/blueberrypondhouse" target="_blank" class="btn btn-green">Book on Airbnb</a>
+            <a href="#contact" class="btn btn-ghost">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- OASIS -->
+      <div class="property-card reveal">
+        <div class="property-gallery" data-gallery>
+          <img src="https://a0.muscache.com/im/pictures/f82effef-123f-4a4f-b81a-4cd8b66bb8ba.jpg?im_w=720" alt="Blueberry Oasis" class="active">
+          <img src="https://a0.muscache.com/im/pictures/1b9c2236-b20f-4c03-b558-15319b312456.jpg?im_w=720" alt="Oasis interior">
+          <img src="https://a0.muscache.com/im/pictures/9f7953ed-a7fc-4c35-8771-a0515070db87.jpg?im_w=720" alt="Oasis kitchen">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-875522541676094026/original/c8a65f4c-85b0-4480-a232-36af2539378e.jpeg?im_w=720" alt="Oasis bedroom">
+          <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</div>
+          <div class="gallery-dots"></div>
+          <button class="gallery-nav prev">&lsaquo;</button>
+          <button class="gallery-nav next">&rsaquo;</button>
+        </div>
+        <div class="property-info">
+          <h3 class="property-name">Blueberry Oasis</h3>
+          <div class="property-specs">3 bedrooms &middot; 6 beds &middot; 2 baths &middot; Sleeps 9</div>
+          <p class="property-desc">Charming home with a spacious kitchen, foosball, hammock, swings, and a fire pit for bonfires. Walking distance to two synagogues in season. Perfect 5-star rating.</p>
+          <div class="property-highlights">
+            <span class="highlight-tag">Perfect 5.0 Rating</span>
+            <span class="highlight-tag">Charcoal Grill</span>
+            <span class="highlight-tag">Fire Pit</span>
+            <span class="highlight-tag">Foosball</span>
+          </div>
+          <div class="property-cta">
+            <a href="https://airbnb.com/h/blueberryoasis" target="_blank" class="btn btn-green">Book on Airbnb</a>
+            <a href="#contact" class="btn btn-ghost">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- COZY -->
+      <div class="property-card reveal">
+        <div class="property-gallery" data-gallery>
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-995680065205252444/original/f31e82a6-f855-4fbd-8a42-251999c160e5.jpeg?im_w=720" alt="Blueberry Cozy" class="active">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-995680065205252444/original/64c611cd-693a-460c-ba2e-daa1b90d7d9c.jpeg?im_w=720" alt="Cozy interior">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-995680065205252444/original/b16c6d63-8657-4e21-845a-373b2f18173f.jpeg?im_w=720" alt="Cozy kitchen">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-995680065205252444/original/633a5320-dd5f-49ca-9c24-a9100e500e69.jpeg?im_w=720" alt="Cozy bedroom">
+          <div class="gallery-dots"></div>
+          <button class="gallery-nav prev">&lsaquo;</button>
+          <button class="gallery-nav next">&rsaquo;</button>
+        </div>
+        <div class="property-info">
+          <h3 class="property-name">Blueberry Cozy</h3>
+          <div class="property-specs">3 bedrooms &middot; 5 beds &middot; 1 bath &middot; Sleeps 7</div>
+          <p class="property-desc">Spacious and peaceful home on a quiet country road. Beautiful kitchen, outdoor grill, porch with swing, Adirondack chairs, hammock, and fire pit. Half a mile from the farm.</p>
+          <div class="property-highlights">
+            <span class="highlight-tag">Quiet Road</span>
+            <span class="highlight-tag">Porch Swing</span>
+            <span class="highlight-tag">Hammock</span>
+            <span class="highlight-tag">Near Farm</span>
+          </div>
+          <div class="property-cta">
+            <a href="https://airbnb.com/h/blueberrycozy" target="_blank" class="btn btn-green">Book on Airbnb</a>
+            <a href="#contact" class="btn btn-ghost">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- NESTLED -->
+      <div class="property-card reveal">
+        <div class="property-gallery" data-gallery>
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/cdceba34-c2bf-45e7-ba53-7ee4bb8e707f.jpeg?im_w=720" alt="Blueberry Nestled" class="active">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/e1c11a27-a814-4c3c-a300-0cf7d0191069.jpeg?im_w=720" alt="Nestled interior">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/45dd218c-bcf4-4e6b-baa5-af164bd17c45.jpeg?im_w=720" alt="Nestled kitchen">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1411558074153902245/original/b61e7d86-ec89-42ca-bff2-a2cb1fd01a1c.jpeg?im_w=720" alt="Nestled bedroom">
+          <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</div>
+          <div class="gallery-dots"></div>
+          <button class="gallery-nav prev">&lsaquo;</button>
+          <button class="gallery-nav next">&rsaquo;</button>
+        </div>
+        <div class="property-info">
+          <h3 class="property-name">Blueberry Nestled</h3>
+          <div class="property-specs">3 bedrooms &middot; 3 beds &middot; 2 baths &middot; Sleeps 6</div>
+          <p class="property-desc">Private retreat at the end of a winding driveway. Charcoal grill, netted gazebo for outdoor dining, and total peace and quiet. Perfect 5-star rating from every guest.</p>
+          <div class="property-highlights">
+            <span class="highlight-tag">Perfect 5.0 Rating</span>
+            <span class="highlight-tag">Very Private</span>
+            <span class="highlight-tag">Gazebo</span>
+            <span class="highlight-tag">Near Farm</span>
+          </div>
+          <div class="property-cta">
+            <a href="https://airbnb.com/h/blueberrynestled" target="_blank" class="btn btn-green">Book on Airbnb</a>
+            <a href="#contact" class="btn btn-ghost">Inquire</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Guest Reviews</div>
+      <h2 class="section-title">Guests keep coming back</h2>
+      <p class="section-subtitle">Over 145 reviews across our six homes with a combined 4.96 average. Here's what people are saying.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">We organized 10 cousins in their 20s and 30s to stay while we celebrated their grandmother's 90th birthday all weekend. The rest of us visited and fed the animals, walked the wooded trails, and played football on the lawn. The house was perfect for a large group.</p>
+        <div class="testimonial-source">Airbnb Guest</div>
+        <div class="testimonial-house">Blueberry Farmhouse</div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">We hosted our family Thanksgiving dinner here with 16 guests. The house accommodated everyone comfortably. There are multiple spaces and kitchens which worked out well for cooking two turkeys and many other dishes. Very clean and comfortable. Highly recommend!</p>
+        <div class="testimonial-source">Airbnb Guest</div>
+        <div class="testimonial-house">Blueberry Farmhouse</div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">Very spacious, with plenty of room for everyone in our party of 14. Lots of room for games, reading, yoga. Everyone also enjoyed interacting with the farm animals. Be sure to bring lots of carrots!</p>
+        <div class="testimonial-source">Airbnb Guest</div>
+        <div class="testimonial-house">Blueberry Farmhouse</div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">There were 15 of us, and the house accommodated us comfortably. It is spacious and clean &mdash; just right for a large get together. Close to a lot of great outdoor recreation.</p>
+        <div class="testimonial-source">Airbnb Guest</div>
+        <div class="testimonial-house">Blueberry Farmhouse</div>
+      </div>
+    </div>
+
+    <div class="overall-rating reveal">
+      <div class="big-number">4.96</div>
+      <div class="rating-detail">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Average across 145+ reviews on Airbnb &middot; Superhost status &middot; 5 years hosting</p>
+      </div>
+      <div class="badge-row">
+        <span class="badge">Top 1% on Airbnb</span>
+        <span class="badge">Superhost</span>
+        <span class="badge">Guest Favorite</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GROUP BOOKING -->
+<section id="groups">
+  <div class="container">
+    <div class="group-header reveal">
+      <div class="section-tag">Group Stays</div>
+      <h2 class="section-title">The perfect setup for large groups</h2>
+      <p class="section-subtitle">All six homes are within three miles of each other. Combine homes to fit your group, from an intimate family weekend to a 80-person reunion.</p>
+    </div>
+
+    <div class="group-combos reveal">
+      <h3>Popular combinations</h3>
+      <div class="combo">
+        <div class="combo-houses">Blueberry Manor <span class="combo-plus">+</span> Farmhouse</div>
+        <div class="combo-total">44 guests</div>
+      </div>
+      <div class="combo">
+        <div class="combo-houses">Manor <span class="combo-plus">+</span> Farmhouse <span class="combo-plus">+</span> Pond</div>
+        <div class="combo-total">58 guests</div>
+      </div>
+      <div class="combo">
+        <div class="combo-houses">Manor <span class="combo-plus">+</span> Farmhouse <span class="combo-plus">+</span> Pond <span class="combo-plus">+</span> Oasis</div>
+        <div class="combo-total">67 guests</div>
+      </div>
+      <div class="combo">
+        <div class="combo-houses">All six homes combined</div>
+        <div class="combo-total">80 guests</div>
+      </div>
+    </div>
+
+    <div class="group-grid reveal">
+      <div class="group-card">
+        <h4>Reunions & Celebrations</h4>
+        <p>Birthday milestones, family reunions, anniversary weekends. Multiple homes give everyone private space while the farm and porches are perfect for gathering together.</p>
+      </div>
+      <div class="group-card">
+        <h4>Wedding Parties</h4>
+        <p>House the wedding party and family across our homes. Cook together in the big kitchens, celebrate around the fire pit, and enjoy the Catskill scenery.</p>
+      </div>
+      <div class="group-card">
+        <h4>Holiday Getaways</h4>
+        <p>Thanksgiving, Passover, summer vacation &mdash; our kitchens are equipped for large-scale cooking and the dining tables seat up to 18 per home.</p>
+      </div>
+    </div>
+
+    <div class="group-cta reveal">
+      <a href="#contact" class="btn btn-primary">Tell Us About Your Group</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Things to Do</div>
+      <h2 class="section-title">Your days here</h2>
+      <p class="section-subtitle">From morning hikes to evening bonfires, every day feels full.</p>
+    </div>
+
+    <div class="experience-grid">
+      <div class="exp-card reveal">
+        <span class="exp-icon">&#x1F40E;</span>
+        <h4>Visit the Farm</h4>
+        <p>Horses, donkeys, mules, sheep, goats, and chickens. Walk over and feed the animals &mdash; bring carrots! Half a mile from most homes.</p>
+      </div>
+      <div class="exp-card reveal">
+        <span class="exp-icon">&#x1FAB7;</span>
+        <h4>Pick Blueberries</h4>
+        <p>In July, the fields around the homes are covered in wild blueberry bushes. Pick to your heart's content and bring them home for pies.</p>
+      </div>
+      <div class="exp-card reveal">
+        <span class="exp-icon">&#x1F6B6;</span>
+        <h4>Hiking Trails</h4>
+        <p>300 acres of trails on the property, plus world-class hiking in the Shawangunks, Neversink Gorge with 3 waterfalls, and Sam's Point ice caves.</p>
+      </div>
+      <div class="exp-card reveal">
+        <span class="exp-icon">&#x1F525;</span>
+        <h4>Bonfires & S'mores</h4>
+        <p>Every home has a fire pit. Roast marshmallows, tell stories, and watch the stars &mdash; no light pollution up here.</p>
+      </div>
+      <div class="exp-card reveal">
+        <span class="exp-icon">&#x1F3D3;</span>
+        <h4>Pool & Pickleball</h4>
+        <p>Community pool one mile away (seasonal). Brand new free pickleball and basketball courts in town.</p>
+      </div>
+      <div class="exp-card reveal">
+        <span class="exp-icon">&#x1F3A2;</span>
+        <h4>Family Attractions</h4>
+        <p>Legoland (45 min), Kartrite Indoor Water Park (30 min), Resorts World Casino (30 min), Bethel Woods concerts, boat rentals on mountain lakes.</p>
+      </div>
+      <div class="exp-card reveal">
+        <span class="exp-icon">&#x1F374;</span>
+        <h4>Local Dining & Nightlife</h4>
+        <p>Mountaindale has live music, a creek-side bar, and great pizza. Woodburn has kosher supermarkets. Ellenville and Monticello have dozens of restaurants.</p>
+      </div>
+      <div class="exp-card reveal">
+        <span class="exp-icon">&#x1F54D;</span>
+        <h4>Nearby Synagogues</h4>
+        <p>Walking distance to Orthodox synagogues in summer. Year-round synagogue in town (2 miles). Kosher supermarkets in Woodburn, less than 5 miles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Get In Touch</div>
+      <h2 class="section-title">Plan your stay</h2>
+    </div>
+
+    <div class="contact-wrap">
+      <div class="contact-info reveal">
+        <h3>We'd love to help you plan the perfect getaway</h3>
+        <p>Whether you need one home for a quiet weekend or all six for a family reunion, we'll help you find the right combination. Tell us about your group and we'll get back to you within 24 hours.</p>
+
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Mountain Dale &amp; Greenfield Park, Sullivan County, NY
+        </div>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Message us through Airbnb or use this form
+        </div>
+        <div class="contact-detail">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          90 minutes from the George Washington Bridge
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <a href="https://www.airbnb.com/users/show/58255552" target="_blank" class="btn btn-green" style="margin-right: 0.8rem;">View All on Airbnb</a>
+          <a href="https://www.instagram.com/blueberrymountainfarms" target="_blank" class="btn btn-ghost" style="border-color: var(--sage); color: var(--deep-green);">Instagram (11K followers)</a>
+        </div>
+      </div>
+
+      <div class="contact-form reveal" id="inquiryForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" placeholder="Full name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="guests">Group Size</label>
+            <select id="guests">
+              <option value="">How many guests?</option>
+              <option>1-6 (one small home)</option>
+              <option>7-14 (one medium home)</option>
+              <option>15-24 (one large home)</option>
+              <option>25-44 (two homes)</option>
+              <option>45-67 (three or four homes)</option>
+              <option>68-80+ (five or six homes)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dates">Preferred Dates</label>
+            <input type="text" id="dates" placeholder="e.g. July 4-7 weekend">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="occasion">What's the Occasion?</label>
+          <select id="occasion">
+            <option value="">Select one</option>
+            <option>Family reunion</option>
+            <option>Birthday / Anniversary</option>
+            <option>Wedding party</option>
+            <option>Holiday gathering</option>
+            <option>Friends getaway</option>
+            <option>Corporate retreat</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Anything else we should know?</label>
+          <textarea id="message" placeholder="Tell us about your group, any special needs, or questions you have..."></textarea>
+        </div>
+        <button type="button" class="form-submit" onclick="submitForm()">Send Inquiry</button>
+        <div id="formMessage" style="display:none; margin-top: 1rem; padding: 1rem; border-radius: 8px; text-align: center;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Blueberry Mountain Farms</div>
+  <div class="footer-tagline">Six homes on 300 acres in the Sullivan County Catskills</div>
+  <div class="footer-links">
+    <a href="#properties">Our Homes</a>
+    <a href="#groups">Group Stays</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#experience">Things to Do</a>
+    <a href="#contact">Inquire</a>
+    <a href="https://www.airbnb.com/users/show/58255552" target="_blank">Airbnb</a>
+  </div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/blueberrymountainfarms" target="_blank" aria-label="Instagram">&#9679;</a>
+    <a href="https://www.airbnb.com/users/show/58255552" target="_blank" aria-label="Airbnb">&#9679;</a>
+  </div>
+  <div class="footer-copy">&copy; 2026 Blueberry Mountain Farms. All rights reserved.</div>
+</footer>
+
+<script>
+// === NAV SCROLL ===
+const nav = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 80);
+});
+
+// === NAV TOGGLE ===
+document.getElementById('navToggle').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
+});
+
+// === HERO SLIDESHOW ===
+const heroSlides = document.querySelectorAll('.hero-slide');
+let heroIdx = 0;
+setInterval(() => {
+  heroSlides[heroIdx].classList.remove('active');
+  heroIdx = (heroIdx + 1) % heroSlides.length;
+  heroSlides[heroIdx].classList.add('active');
+}, 5000);
+
+// === PROPERTY GALLERIES ===
+document.querySelectorAll('[data-gallery]').forEach(gallery => {
+  const imgs = gallery.querySelectorAll('img');
+  const dotsContainer = gallery.querySelector('.gallery-dots');
+  const prevBtn = gallery.querySelector('.gallery-nav.prev');
+  const nextBtn = gallery.querySelector('.gallery-nav.next');
+  let current = 0;
+
+  // Create dots
+  imgs.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  function goTo(idx) {
+    imgs[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = idx;
+    imgs[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+  }
+
+  prevBtn.addEventListener('click', () => goTo((current - 1 + imgs.length) % imgs.length));
+  nextBtn.addEventListener('click', () => goTo((current + 1) % imgs.length));
+});
+
+// === SCROLL REVEAL ===
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// === FORM HANDLER ===
+function submitForm() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const guests = document.getElementById('guests').value;
+  const dates = document.getElementById('dates').value;
+  const occasion = document.getElementById('occasion').value;
+  const message = document.getElementById('message').value;
+  const msgDiv = document.getElementById('formMessage');
+
+  if (!name || !email) {
+    msgDiv.style.display = 'block';
+    msgDiv.style.background = '#FEE2E2';
+    msgDiv.style.color = '#991B1B';
+    msgDiv.textContent = 'Please fill in your name and email.';
+    return;
+  }
+
+  // Compose mailto
+  const subject = encodeURIComponent('Blueberry Mountain Farms Inquiry' + (occasion ? ' - ' + occasion : ''));
+  const body = encodeURIComponent(
+    'Name: ' + name + '\n' +
+    'Email: ' + email + '\n' +
+    'Group Size: ' + guests + '\n' +
+    'Dates: ' + dates + '\n' +
+    'Occasion: ' + occasion + '\n\n' +
+    'Message:\n' + message
+  );
+
+  window.location.href = 'mailto:blueberrymountainfarm@blueberrymountainfarms.com?subject=' + subject + '&body=' + body;
+
+  msgDiv.style.display = 'block';
+  msgDiv.style.background = '#D1FAE5';
+  msgDiv.style.color = '#065F46';
+  msgDiv.textContent = 'Opening your email client... If it doesn\'t open, email us at blueberrymountainfarm@blueberrymountainfarms.com';
+}
+</script>
+
+</body>
+</html>
