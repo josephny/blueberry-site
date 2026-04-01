@@ -21,15 +21,9 @@
   --charcoal: #2D2A26;
   --text: #3D3832;
   --text-light: #6B6560;
-  --berry: #6B4C6E;
-  --berry-light: #E8D5EA;
-  --sky: #A8C4D4;
 }
-
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Source Sans 3', sans-serif;
   color: var(--text);
@@ -38,23 +32,32 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-
 h1, h2, h3, h4 {
   font-family: 'Playfair Display', Georgia, serif;
   font-weight: 600;
   line-height: 1.2;
 }
 
-/* ===== NAV ===== */
+/* URGENCY BANNER */
+.urgency-banner {
+  background: var(--deep-green);
+  color: white;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  position: relative;
+  z-index: 101;
+}
+.urgency-banner strong { color: var(--gold-light); }
+.urgency-banner a { color: var(--gold-light); text-decoration: underline; margin-left: 0.5rem; }
+
+/* NAV */
 nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
+  position: fixed; top: 0; width: 100%; z-index: 100;
   padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; justify-content: space-between; align-items: center;
   transition: all 0.4s ease;
 }
 nav.scrolled {
@@ -65,787 +68,276 @@ nav.scrolled {
 }
 .nav-logo {
   font-family: 'Playfair Display', serif;
-  color: white;
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-decoration: none;
-  letter-spacing: 0.02em;
+  color: white; font-size: 1.3rem; font-weight: 700;
+  text-decoration: none; letter-spacing: 0.02em;
 }
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
-  color: rgba(255,255,255,0.9);
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  color: rgba(255,255,255,0.9); text-decoration: none;
+  font-size: 0.9rem; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase;
   transition: color 0.3s;
 }
 .nav-links a:hover { color: var(--gold-light); }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+.nav-toggle span { display: block; width: 24px; height: 2px; background: white; margin: 5px 0; transition: all 0.3s; }
 
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-.nav-toggle span {
-  display: block;
-  width: 24px;
-  height: 2px;
-  background: white;
-  margin: 5px 0;
-  transition: all 0.3s;
-}
-
-/* ===== HERO ===== */
+/* HERO */
 .hero {
-  position: relative;
-  height: 100vh;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  position: relative; height: 100vh; min-height: 600px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
 }
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 40%, rgba(44,74,62,0.6) 100%);
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.05) 40%, rgba(44,74,62,0.6) 100%);
   z-index: 1;
 }
-.hero-slides {
-  position: absolute;
-  inset: 0;
-}
+.hero-slides { position: absolute; inset: 0; }
 .hero-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
+  position: absolute; inset: 0; opacity: 0;
   transition: opacity 1.5s ease;
-  background-size: cover;
-  background-position: center;
+  background-size: cover; background-position: center;
 }
 .hero-slide.active { opacity: 1; }
-.hero-slide:nth-child(1) {
-  background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTk4MjY3MTY4MTEzMjUxMjk0/original/e3dd70be-d0ac-4c91-9c9e-0cc77a078610.jpeg?im_w=1200');
-}
-.hero-slide:nth-child(2) {
-  background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYxNzU2ODc%3D/original/56a73cef-1819-45f4-a537-cbc11f1b0176.jpeg?im_w=1200');
-}
-.hero-slide:nth-child(3) {
-  background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/502e3356-7efa-4046-bbc6-3f20c3cddc65.jpeg?im_w=1200');
-}
-.hero-slide:nth-child(4) {
-  background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/cdceba34-c2bf-45e7-ba53-7ee4bb8e707f.jpeg?im_w=1200');
-}
+.hero-slide:nth-child(1) { background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTk4MjY3MTY4MTEzMjUxMjk0/original/e3dd70be-d0ac-4c91-9c9e-0cc77a078610.jpeg?im_w=1200'); }
+.hero-slide:nth-child(2) { background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYxNzU2ODc%3D/original/56a73cef-1819-45f4-a537-cbc11f1b0176.jpeg?im_w=1200'); }
+.hero-slide:nth-child(3) { background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/502e3356-7efa-4046-bbc6-3f20c3cddc65.jpeg?im_w=1200'); }
+.hero-slide:nth-child(4) { background-image: url('https://a0.muscache.com/im/pictures/f82effef-123f-4a4f-b81a-4cd8b66bb8ba.jpg?im_w=1200'); }
+.hero-slide:nth-child(5) { background-image: url('https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/cdceba34-c2bf-45e7-ba53-7ee4bb8e707f.jpeg?im_w=1200'); }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: white;
-  max-width: 800px;
-  padding: 0 2rem;
+  position: relative; z-index: 2; text-align: center;
+  color: white; max-width: 800px; padding: 0 2rem;
   animation: fadeUp 1.2s ease both;
 }
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .hero-tag {
-  font-family: 'Source Sans 3', sans-serif;
-  font-weight: 500;
-  font-size: 0.85rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--gold-light);
-  margin-bottom: 1.2rem;
+  font-family: 'Source Sans 3', sans-serif; font-weight: 500;
+  font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 1.2rem;
 }
-.hero h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 700;
-  margin-bottom: 1.2rem;
-  text-shadow: 0 2px 30px rgba(0,0,0,0.3);
-}
-.hero h1 em {
-  font-style: italic;
-  color: var(--gold-light);
-}
-.hero-sub {
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  font-weight: 300;
-  line-height: 1.7;
-  margin-bottom: 2rem;
-  opacity: 0.92;
-}
-.hero-stats {
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  margin-bottom: 2.5rem;
-  flex-wrap: wrap;
-}
-.hero-stat {
-  text-align: center;
-}
-.hero-stat .number {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--gold-light);
-  display: block;
-}
-.hero-stat .label {
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  opacity: 0.85;
-}
-.hero-cta {
-  display: inline-flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; margin-bottom: 1.2rem; text-shadow: 0 2px 30px rgba(0,0,0,0.3); }
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero-sub { font-size: clamp(1rem, 2vw, 1.25rem); font-weight: 300; line-height: 1.7; margin-bottom: 2rem; opacity: 0.92; }
+.hero-stats { display: flex; justify-content: center; gap: 2.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+.hero-stat { text-align: center; }
+.hero-stat .number { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold-light); display: block; }
+.hero-stat .label { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
+.hero-cta { display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
 .btn {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
+  display: inline-block; padding: 1rem 2.5rem;
+  font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+  border-radius: 4px; transition: all 0.3s ease; cursor: pointer; border: none;
 }
-.btn-primary {
-  background: var(--gold);
-  color: white;
-}
-.btn-primary:hover {
-  background: #b89a5e;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(200,169,110,0.4);
-}
-.btn-outline {
-  background: transparent;
-  color: white;
-  border: 1.5px solid rgba(255,255,255,0.6);
-}
-.btn-outline:hover {
-  background: rgba(255,255,255,0.12);
-  border-color: white;
-}
-.hero-scroll {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  animation: bounce 2s ease infinite;
-}
-@keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(8px); }
-}
+.btn-primary { background: var(--gold); color: white; }
+.btn-primary:hover { background: #b89a5e; transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200,169,110,0.4); }
+.btn-outline { background: transparent; color: white; border: 1.5px solid rgba(255,255,255,0.6); }
+.btn-outline:hover { background: rgba(255,255,255,0.12); border-color: white; }
+.hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2; animation: bounce 2s ease infinite; }
+@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 .hero-scroll svg { width: 28px; height: 28px; stroke: rgba(255,255,255,0.6); }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 section { padding: 6rem 2rem; }
-.section-tag {
-  font-family: 'Source Sans 3', sans-serif;
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--sage);
-  margin-bottom: 0.8rem;
-}
-.section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: var(--deep-green);
-  margin-bottom: 1rem;
-}
-.section-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-light);
-  max-width: 600px;
-  font-weight: 300;
-  line-height: 1.7;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+.section-tag { font-family: 'Source Sans 3', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.8rem; }
+.section-title { font-size: clamp(2rem, 4vw, 3rem); color: var(--deep-green); margin-bottom: 1rem; }
+.section-subtitle { font-size: 1.1rem; color: var(--text-light); max-width: 600px; font-weight: 300; line-height: 1.7; }
+.container { max-width: 1200px; margin: 0 auto; }
 
-/* ===== PROPERTIES ===== */
+/* PROPERTIES */
 #properties { background: var(--warm-white); }
-.properties-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
+.properties-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 2rem; margin-top: 3rem; }
 .property-card {
-  background: white;
-  border-radius: 12px;
-  overflow: hidden;
+  background: white; border-radius: 12px; overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.property-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-}
-.property-gallery {
-  position: relative;
-  height: 260px;
-  overflow: hidden;
-}
-.property-gallery img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
+.property-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+.property-gallery { position: relative; height: 260px; overflow: hidden; }
+.property-gallery img { width: 100%; height: 100%; object-fit: cover; position: absolute; opacity: 0; transition: opacity 0.6s ease; }
 .property-gallery img.active { opacity: 1; }
-.gallery-dots {
-  position: absolute;
-  bottom: 12px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 2;
-}
-.gallery-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.5);
-  cursor: pointer;
-  transition: background 0.3s;
-  border: none;
-}
+.gallery-dots { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 2; }
+.gallery-dot { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.3s; border: none; }
 .gallery-dot.active { background: white; }
 .gallery-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.85);
-  border: none;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s;
-  z-index: 2;
-  font-size: 1rem;
-  color: var(--charcoal);
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.85); border: none; width: 32px; height: 32px;
+  border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s; z-index: 2; font-size: 1rem; color: var(--charcoal);
 }
 .property-card:hover .gallery-nav { opacity: 1; }
 .gallery-nav.prev { left: 10px; }
 .gallery-nav.next { right: 10px; }
 .property-rating {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background: rgba(255,255,255,0.92);
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--charcoal);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 4px;
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(255,255,255,0.92); padding: 4px 10px; border-radius: 20px;
+  font-size: 0.8rem; font-weight: 600; color: var(--charcoal); z-index: 2;
+  display: flex; align-items: center; gap: 4px;
 }
 .property-rating svg { width: 14px; height: 14px; fill: var(--gold); }
-
 .property-info { padding: 1.5rem; }
-.property-name {
-  font-size: 1.4rem;
-  color: var(--deep-green);
-  margin-bottom: 0.4rem;
-}
-.property-specs {
-  font-size: 0.85rem;
-  color: var(--text-light);
-  margin-bottom: 0.8rem;
-  font-weight: 500;
-}
-.property-desc {
-  font-size: 0.95rem;
-  color: var(--text);
-  line-height: 1.65;
-  margin-bottom: 1.2rem;
-}
-.property-highlights {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.2rem;
-}
-.highlight-tag {
-  background: var(--cream);
-  color: var(--forest);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.78rem;
-  font-weight: 500;
-}
-.property-cta {
-  display: flex;
-  gap: 0.8rem;
-}
-.property-cta .btn {
-  padding: 0.7rem 1.5rem;
-  font-size: 0.8rem;
-  flex: 1;
-  text-align: center;
-}
-.btn-green {
-  background: var(--deep-green);
-  color: white;
-}
-.btn-green:hover {
-  background: var(--forest);
-  transform: translateY(-1px);
-}
-.btn-ghost {
-  background: transparent;
-  color: var(--deep-green);
-  border: 1.5px solid var(--sage);
-}
+.property-name { font-size: 1.4rem; color: var(--deep-green); margin-bottom: 0.4rem; }
+.property-specs { font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.8rem; font-weight: 500; }
+.property-desc { font-size: 0.95rem; color: var(--text); line-height: 1.65; margin-bottom: 1.2rem; }
+.property-highlights { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.2rem; }
+.highlight-tag { background: var(--cream); color: var(--forest); padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 500; }
+.property-cta { display: flex; gap: 0.8rem; }
+.property-cta .btn { padding: 0.7rem 1.5rem; font-size: 0.8rem; flex: 1; text-align: center; }
+.btn-green { background: var(--deep-green); color: white; }
+.btn-green:hover { background: var(--forest); transform: translateY(-1px); }
+.btn-ghost { background: transparent; color: var(--deep-green); border: 1.5px solid var(--sage); }
 .btn-ghost:hover { background: rgba(122,158,142,0.08); }
 
-/* ===== GROUP BOOKING ===== */
-#groups {
-  background: var(--deep-green);
-  color: white;
-  position: relative;
-  overflow: hidden;
+/* TESTIMONIALS */
+#testimonials { background: var(--cream); }
+.testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+.testimonial {
+  background: white; border-radius: 12px; padding: 2rem;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.04); position: relative;
 }
-#groups::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 400px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(200,169,110,0.1) 0%, transparent 70%);
-  border-radius: 50%;
+.testimonial::before { content: '\201C'; font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--gold-light); position: absolute; top: 0.5rem; left: 1.2rem; line-height: 1; }
+.testimonial-text { font-size: 1rem; line-height: 1.75; color: var(--text); margin-bottom: 1rem; padding-top: 1.5rem; font-style: italic; }
+.testimonial-stars { color: var(--gold); font-size: 0.9rem; margin-bottom: 0.5rem; letter-spacing: 2px; }
+.testimonial-source { font-size: 0.8rem; color: var(--text-light); font-weight: 500; }
+.testimonial-house { font-size: 0.78rem; color: var(--sage); }
+.overall-rating {
+  display: flex; align-items: center; gap: 2rem; margin-top: 3rem;
+  padding: 1.5rem 2rem; background: white; border-radius: 12px;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.04); flex-wrap: wrap;
 }
+.overall-rating .big-number { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--deep-green); }
+.overall-rating .rating-detail { flex: 1; }
+.overall-rating .stars { color: var(--gold); font-size: 1.2rem; letter-spacing: 3px; }
+.overall-rating p { font-size: 0.95rem; color: var(--text-light); margin-top: 0.3rem; }
+.badge-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.badge { background: var(--cream); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: var(--deep-green); }
+
+/* GROUPS */
+#groups { background: var(--deep-green); color: white; position: relative; overflow: hidden; }
+#groups::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(200,169,110,0.1) 0%, transparent 70%); border-radius: 50%; }
 .group-header { margin-bottom: 3rem; }
 .group-header .section-tag { color: var(--gold-light); }
 .group-header .section-title { color: white; }
 .group-header .section-subtitle { color: rgba(255,255,255,0.7); }
-
-.group-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 3rem;
-}
-.group-card {
-  background: rgba(255,255,255,0.07);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 10px;
-  padding: 1.5rem;
-  transition: background 0.3s;
-}
+.group-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
+.group-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 1.5rem; transition: background 0.3s; }
 .group-card:hover { background: rgba(255,255,255,0.1); }
-.group-card h4 {
-  font-size: 1.15rem;
-  margin-bottom: 0.3rem;
-  color: var(--gold-light);
-}
-.group-card .sleeps {
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.6);
-  margin-bottom: 0.5rem;
-}
-.group-card p {
-  font-size: 0.9rem;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.6;
-}
-
-.group-combos {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  padding: 2rem;
-  margin-bottom: 2rem;
-}
-.group-combos h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  color: white;
-}
-.combo {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  flex-wrap: wrap;
-}
+.group-card h4 { font-size: 1.15rem; margin-bottom: 0.3rem; color: var(--gold-light); }
+.group-card p { font-size: 0.9rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+.group-combos { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 2rem; margin-bottom: 2rem; }
+.group-combos h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: white; }
+.combo { display: flex; align-items: center; gap: 0.8rem; padding: 1rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
 .combo:last-child { border-bottom: none; }
-.combo-houses {
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.85);
-  flex: 1;
-}
-.combo-total {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--gold-light);
-  white-space: nowrap;
-}
+.combo-houses { font-size: 0.95rem; color: rgba(255,255,255,0.85); flex: 1; }
+.combo-total { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--gold-light); white-space: nowrap; }
 .combo-plus { color: var(--gold); font-weight: 700; }
+.group-cta { text-align: center; margin-top: 2rem; }
 
-.group-cta {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-/* ===== TESTIMONIALS ===== */
-#testimonials {
-  background: var(--cream);
-  position: relative;
-}
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-.testimonial {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.04);
-  position: relative;
-}
-.testimonial::before {
-  content: '\201C';
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  color: var(--gold-light);
-  position: absolute;
-  top: 0.5rem;
-  left: 1.2rem;
-  line-height: 1;
-}
-.testimonial-text {
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--text);
-  margin-bottom: 1rem;
-  padding-top: 1.5rem;
-  font-style: italic;
-}
-.testimonial-stars {
-  color: var(--gold);
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: 2px;
-}
-.testimonial-source {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  font-weight: 500;
-}
-.testimonial-house {
-  font-size: 0.78rem;
-  color: var(--sage);
-}
-.overall-rating {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 3rem;
-  padding: 1.5rem 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.04);
-  flex-wrap: wrap;
-}
-.overall-rating .big-number {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: var(--deep-green);
-}
-.overall-rating .rating-detail {
-  flex: 1;
-}
-.overall-rating .stars { color: var(--gold); font-size: 1.2rem; letter-spacing: 3px; }
-.overall-rating p {
-  font-size: 0.95rem;
-  color: var(--text-light);
-  margin-top: 0.3rem;
-}
-.badge-row {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.badge {
-  background: var(--cream);
-  padding: 6px 16px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--deep-green);
-}
-
-/* ===== EXPERIENCE ===== */
+/* EXPERIENCE */
 #experience { background: var(--warm-white); }
-.experience-grid {
+.exp-photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 200px 200px;
+  gap: 0.75rem;
   margin-top: 3rem;
-}
-.exp-card {
-  background: white;
+  margin-bottom: 3rem;
   border-radius: 12px;
-  padding: 2rem;
-  text-align: center;
-  transition: transform 0.3s;
-  box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+  overflow: hidden;
 }
+.exp-photo { position: relative; overflow: hidden; border-radius: 8px; }
+.exp-photo-grid .exp-photo:first-child { grid-column: span 2; grid-row: span 2; }
+.exp-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.exp-photo:hover img { transform: scale(1.05); }
+.exp-photo-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.65));
+  color: white; font-weight: 600; font-size: 0.9rem;
+}
+.experience-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
+.exp-card { background: white; border-radius: 12px; padding: 2rem; text-align: center; transition: transform 0.3s; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
 .exp-card:hover { transform: translateY(-3px); }
-.exp-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  display: block;
-}
-.exp-card h4 {
-  font-size: 1.15rem;
-  color: var(--deep-green);
-  margin-bottom: 0.5rem;
-}
-.exp-card p {
-  font-size: 0.9rem;
-  color: var(--text-light);
-  line-height: 1.6;
-}
+.exp-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+.exp-card h4 { font-size: 1.15rem; color: var(--deep-green); margin-bottom: 0.5rem; }
+.exp-card p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
 
-/* ===== CONTACT / INQUIRY ===== */
-#contact {
-  background: var(--cream);
+/* CONTACT */
+#contact { background: var(--cream); }
+.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; align-items: start; }
+.contact-info h3 { font-size: 1.5rem; color: var(--deep-green); margin-bottom: 1rem; }
+.contact-info p { font-size: 1rem; color: var(--text-light); line-height: 1.7; margin-bottom: 1.5rem; }
+.contact-detail { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; font-size: 0.95rem; color: var(--text); }
+.contact-detail svg { width: 20px; height: 20px; stroke: var(--forest); flex-shrink: 0; }
+.contact-form { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.06); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-group { margin-bottom: 1.2rem; }
+.form-group label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 0.4rem; }
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 0.8rem 1rem; border: 1.5px solid #ddd; border-radius: 6px;
+  font-family: 'Source Sans 3', sans-serif; font-size: 0.95rem; color: var(--text);
+  transition: border-color 0.3s; background: var(--warm-white);
 }
-.contact-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-top: 3rem;
-  align-items: start;
-}
-.contact-info h3 {
-  font-size: 1.5rem;
-  color: var(--deep-green);
-  margin-bottom: 1rem;
-}
-.contact-info p {
-  font-size: 1rem;
-  color: var(--text-light);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-.contact-detail {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  color: var(--text);
-}
-.contact-detail svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--forest);
-  flex-shrink: 0;
-}
-.contact-form {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 25px rgba(0,0,0,0.06);
-}
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-}
-.form-group {
-  margin-bottom: 1.2rem;
-}
-.form-group label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 0.4rem;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.8rem 1rem;
-  border: 1.5px solid #ddd;
-  border-radius: 6px;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 0.95rem;
-  color: var(--text);
-  transition: border-color 0.3s;
-  background: var(--warm-white);
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--forest);
-}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--forest); }
 .form-group textarea { resize: vertical; min-height: 100px; }
 .form-submit {
-  width: 100%;
-  padding: 1rem;
-  background: var(--deep-green);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-family: 'Source Sans 3', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: background 0.3s;
+  width: 100%; padding: 1rem; background: var(--deep-green); color: white; border: none;
+  border-radius: 6px; font-family: 'Source Sans 3', sans-serif; font-size: 1rem;
+  font-weight: 600; letter-spacing: 0.05em; cursor: pointer; transition: background 0.3s;
 }
 .form-submit:hover { background: var(--forest); }
 
-/* ===== FOOTER ===== */
-footer {
-  background: var(--charcoal);
-  color: rgba(255,255,255,0.6);
-  padding: 3rem 2rem;
-  text-align: center;
-}
-.footer-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
-  color: white;
-  margin-bottom: 0.5rem;
-}
-.footer-tagline {
-  font-size: 0.9rem;
-  margin-bottom: 1.5rem;
-}
-.footer-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-.footer-links a {
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.3s;
-}
+/* FOOTER */
+footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3rem 2rem; text-align: center; }
+.footer-brand { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: white; margin-bottom: 0.5rem; }
+.footer-tagline { font-size: 0.9rem; margin-bottom: 1.5rem; }
+.footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+.footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; transition: color 0.3s; }
 .footer-links a:hover { color: var(--gold-light); }
-.footer-social {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
+.footer-social { display: flex; justify-content: center; gap: 1rem; margin-bottom: 1.5rem; }
 .footer-social a {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 40px; height: 40px; border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.6);
-  text-decoration: none;
-  transition: all 0.3s;
-  font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.6); text-decoration: none; transition: all 0.3s; font-size: 1.1rem;
 }
-.footer-social a:hover {
-  border-color: var(--gold);
-  color: var(--gold-light);
-}
-.footer-copy {
-  font-size: 0.8rem;
-  opacity: 0.5;
-}
+.footer-social a:hover { border-color: var(--gold); color: var(--gold-light); }
+.footer-copy { font-size: 0.8rem; opacity: 0.5; }
 
-/* ===== SCROLL ANIMATIONS ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 900px) {
   .nav-links { display: none; }
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: rgba(44,74,62,0.97);
-    padding: 1.5rem 2rem;
-    gap: 1rem;
-  }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(44,74,62,0.97); padding: 1.5rem 2rem; gap: 1rem; }
   .nav-toggle { display: block; }
   .properties-grid { grid-template-columns: 1fr; }
   .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
   .testimonials-grid { grid-template-columns: 1fr; }
-  .hero-stats { gap: 1.5rem; }
   .form-row { grid-template-columns: 1fr; }
   section { padding: 4rem 1.5rem; }
   .group-combos { padding: 1.5rem; }
+  .exp-photo-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 150px 150px; }
 }
 @media (max-width: 600px) {
   .hero h1 { font-size: 2.2rem; }
-  .properties-grid { grid-template-columns: 1fr; }
-  .experience-grid { grid-template-columns: 1fr; }
+  .properties-grid, .experience-grid { grid-template-columns: 1fr; }
+  .exp-photo-grid { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .exp-photo-grid .exp-photo:first-child { grid-column: span 1; grid-row: span 1; }
+  .exp-photo { height: 180px; }
 }
 </style>
 </head>
 <body>
+
+<!-- URGENCY BANNER -->
+<div class="urgency-banner">
+  <strong>Summer 2026:</strong> July &amp; August weekends are filling up fast.
+  <a href="#contact">Reserve your dates &rarr;</a>
+</div>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -857,15 +349,14 @@ footer {
     <li><a href="#experience">Things to Do</a></li>
     <li><a href="#contact">Inquire</a></li>
   </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-slides">
     <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
     <div class="hero-slide"></div>
     <div class="hero-slide"></div>
     <div class="hero-slide"></div>
@@ -886,9 +377,7 @@ footer {
       <a href="#contact" class="btn btn-outline">Plan a Group Stay</a>
     </div>
   </div>
-  <div class="hero-scroll">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="7 13 12 18 17 13"/><line x1="12" y1="6" x2="12" y2="18"/></svg>
-  </div>
+  <div class="hero-scroll"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="7 13 12 18 17 13"/><line x1="12" y1="6" x2="12" y2="18"/></svg></div>
 </section>
 
 <!-- PROPERTIES -->
@@ -899,7 +388,6 @@ footer {
       <h2 class="section-title">Six homes, one unforgettable stay</h2>
       <p class="section-subtitle">All within three miles of each other on quiet country roads in Mountain Dale and Greenfield Park.</p>
     </div>
-
     <div class="properties-grid">
 
       <!-- MANOR -->
@@ -909,6 +397,8 @@ footer {
           <img src="https://a0.muscache.com/im/pictures/33bb3acc-d5b6-4fab-868b-9f7fc1b5d467.jpg?im_w=720" alt="Manor living room">
           <img src="https://a0.muscache.com/im/pictures/3bebeb4e-efad-4f6b-9c4d-52bda90beb5b.jpg?im_w=720" alt="Manor dining room">
           <img src="https://a0.muscache.com/im/pictures/0ff6e61a-cf34-448a-a51a-1073fff84f86.jpg?im_w=720" alt="Manor kitchen">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-598267168113251294/original/346d74a5-3955-4ac0-9301-b7a0558b67b9.jpeg?im_w=720" alt="Manor porch">
+          <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=720,fit=crop/d951jEVRQ1c6lk75/manor-homepage-Awv4qD4gwJfqnDVO.jpg" alt="Manor front view">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.98</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -918,16 +408,8 @@ footer {
           <h3 class="property-name">Blueberry Manor</h3>
           <div class="property-specs">7 bedrooms &middot; 15 beds &middot; 3.5 baths &middot; Sleeps 20</div>
           <p class="property-desc">Luxurious, totally renovated home with a 30-foot living room, gourmet kitchen, dining for 18, wraparound porch, and third-floor lounge. Wheelchair accessible first floor.</p>
-          <div class="property-highlights">
-            <span class="highlight-tag">Central AC</span>
-            <span class="highlight-tag">Ping Pong</span>
-            <span class="highlight-tag">Fire Pit</span>
-            <span class="highlight-tag">Top 5% on Airbnb</span>
-          </div>
-          <div class="property-cta">
-            <a href="https://airbnb.com/h/blueberrymanor" target="_blank" class="btn btn-green">Book on Airbnb</a>
-            <a href="#contact" class="btn btn-ghost">Inquire</a>
-          </div>
+          <div class="property-highlights"><span class="highlight-tag">Central AC</span><span class="highlight-tag">Ping Pong</span><span class="highlight-tag">Fire Pit</span><span class="highlight-tag">Top 5% on Airbnb</span></div>
+          <div class="property-cta"><a href="https://airbnb.com/h/blueberrymanor" target="_blank" class="btn btn-green">Book on Airbnb</a><a href="#contact" class="btn btn-ghost">Inquire</a></div>
         </div>
       </div>
 
@@ -938,6 +420,9 @@ footer {
           <img src="https://a0.muscache.com/im/pictures/miso/Hosting-46175687/original/ed802933-655a-4552-af54-f911f60b99d4.jpeg?im_w=720" alt="Farmhouse interior">
           <img src="https://a0.muscache.com/im/pictures/miso/Hosting-46175687/original/0f613b37-a8b5-450f-8843-574a121b6e52.jpeg?im_w=720" alt="Farmhouse kitchen">
           <img src="https://a0.muscache.com/im/pictures/miso/Hosting-46175687/original/e2c6f2bf-9aee-484f-89d6-a8c44ca5e360.jpeg?im_w=720" alt="Farmhouse bedroom">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-46175687/original/bdf59252-715f-46da-9826-21c3c5ef0512.jpeg?im_w=720" alt="Farmhouse bathroom">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-46175687/original/6f0e3f37-7386-487e-8eb7-21c1f7c9c021.jpeg?im_w=720" alt="Treetop bedroom">
+          <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=720,fit=crop/d951jEVRQ1c6lk75/farmhouse-homepage-Yg2jMqj6alfM1Vnx.jpg" alt="Farmhouse front">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.94</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -947,16 +432,8 @@ footer {
           <h3 class="property-name">Blueberry Farmhouse</h3>
           <div class="property-specs">7 bedrooms &middot; 16 beds &middot; 4.5 baths &middot; Sleeps 24</div>
           <p class="property-desc">Four separate living areas make this ideal for multiple families. Each unit has its own kitchen, bathroom, and living space. On the farm with animals visible from the house.</p>
-          <div class="property-highlights">
-            <span class="highlight-tag">4 Separate Units</span>
-            <span class="highlight-tag">On the Farm</span>
-            <span class="highlight-tag">Fire Pit</span>
-            <span class="highlight-tag">Top 1% on Airbnb</span>
-          </div>
-          <div class="property-cta">
-            <a href="https://airbnb.com/h/blueberryfarm" target="_blank" class="btn btn-green">Book on Airbnb</a>
-            <a href="#contact" class="btn btn-ghost">Inquire</a>
-          </div>
+          <div class="property-highlights"><span class="highlight-tag">4 Separate Units</span><span class="highlight-tag">On the Farm</span><span class="highlight-tag">Fire Pit</span><span class="highlight-tag">Top 1% on Airbnb</span></div>
+          <div class="property-cta"><a href="https://airbnb.com/h/blueberryfarm" target="_blank" class="btn btn-green">Book on Airbnb</a><a href="#contact" class="btn btn-ghost">Inquire</a></div>
         </div>
       </div>
 
@@ -964,9 +441,11 @@ footer {
       <div class="property-card reveal">
         <div class="property-gallery" data-gallery>
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/502e3356-7efa-4046-bbc6-3f20c3cddc65.jpeg?im_w=720" alt="Blueberry Pond House" class="active">
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-875513415730440149/original/efdc4bed-c236-40de-a1f2-5b052ef89a2d.jpeg?im_w=720" alt="Pond house interior">
-          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/67ebf379-f46a-4dfa-bd7c-b6643040b941.jpeg?im_w=720" alt="Pond house dining">
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-875513415730440149/original/d2f259e9-0ed9-43a2-99ea-0cce5b99ef94.jpeg?im_w=720" alt="Pond house bedroom">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-875513415730440149/original/efdc4bed-c236-40de-a1f2-5b052ef89a2d.jpeg?im_w=720" alt="Pond interior">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/67ebf379-f46a-4dfa-bd7c-b6643040b941.jpeg?im_w=720" alt="Pond dining">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-875513415730440149/original/d2f259e9-0ed9-43a2-99ea-0cce5b99ef94.jpeg?im_w=720" alt="Pond bedroom">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-875513415730440149/original/d15b8469-a44f-4962-b553-d9d9d55d4265.jpeg?im_w=720" alt="Pond view">
+          <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=720,fit=crop/d951jEVRQ1c6lk75/pond-homepage-A3Q21O26lPiLgaZr.jpg" alt="Pond front">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.92</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -976,16 +455,8 @@ footer {
           <h3 class="property-name">Blueberry Pond</h3>
           <div class="property-specs">6 bedrooms &middot; 10 beds &middot; 2.5 baths &middot; Sleeps 14</div>
           <p class="property-desc">Beautifully renovated farmhouse with a hidden pond through the woods. Enormous yard with swing, hammock, and fire pit. Walking distance to the farm.</p>
-          <div class="property-highlights">
-            <span class="highlight-tag">Private Pond</span>
-            <span class="highlight-tag">65" TV</span>
-            <span class="highlight-tag">Washer/Dryer</span>
-            <span class="highlight-tag">Fire Pit</span>
-          </div>
-          <div class="property-cta">
-            <a href="https://airbnb.com/h/blueberrypondhouse" target="_blank" class="btn btn-green">Book on Airbnb</a>
-            <a href="#contact" class="btn btn-ghost">Inquire</a>
-          </div>
+          <div class="property-highlights"><span class="highlight-tag">Private Pond</span><span class="highlight-tag">65" TV</span><span class="highlight-tag">Washer/Dryer</span><span class="highlight-tag">Fire Pit</span></div>
+          <div class="property-cta"><a href="https://airbnb.com/h/blueberrypondhouse" target="_blank" class="btn btn-green">Book on Airbnb</a><a href="#contact" class="btn btn-ghost">Inquire</a></div>
         </div>
       </div>
 
@@ -996,6 +467,8 @@ footer {
           <img src="https://a0.muscache.com/im/pictures/1b9c2236-b20f-4c03-b558-15319b312456.jpg?im_w=720" alt="Oasis interior">
           <img src="https://a0.muscache.com/im/pictures/9f7953ed-a7fc-4c35-8771-a0515070db87.jpg?im_w=720" alt="Oasis kitchen">
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-875522541676094026/original/c8a65f4c-85b0-4480-a232-36af2539378e.jpeg?im_w=720" alt="Oasis bedroom">
+          <img src="https://a0.muscache.com/im/pictures/a2c24981-b690-4d42-ae7b-f0e272947c10.jpg?im_w=720" alt="Oasis outdoor">
+          <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=720,fit=crop/d951jEVRQ1c6lk75/oasis-homepage-dOqa18agx9uEvBV6.jpg" alt="Oasis front">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -1005,16 +478,8 @@ footer {
           <h3 class="property-name">Blueberry Oasis</h3>
           <div class="property-specs">3 bedrooms &middot; 6 beds &middot; 2 baths &middot; Sleeps 9</div>
           <p class="property-desc">Charming home with a spacious kitchen, foosball, hammock, swings, and a fire pit for bonfires. Walking distance to two synagogues in season. Perfect 5-star rating.</p>
-          <div class="property-highlights">
-            <span class="highlight-tag">Perfect 5.0 Rating</span>
-            <span class="highlight-tag">Charcoal Grill</span>
-            <span class="highlight-tag">Fire Pit</span>
-            <span class="highlight-tag">Foosball</span>
-          </div>
-          <div class="property-cta">
-            <a href="https://airbnb.com/h/blueberryoasis" target="_blank" class="btn btn-green">Book on Airbnb</a>
-            <a href="#contact" class="btn btn-ghost">Inquire</a>
-          </div>
+          <div class="property-highlights"><span class="highlight-tag">Perfect 5.0 Rating</span><span class="highlight-tag">Charcoal Grill</span><span class="highlight-tag">Fire Pit</span><span class="highlight-tag">Foosball</span></div>
+          <div class="property-cta"><a href="https://airbnb.com/h/blueberryoasis" target="_blank" class="btn btn-green">Book on Airbnb</a><a href="#contact" class="btn btn-ghost">Inquire</a></div>
         </div>
       </div>
 
@@ -1025,6 +490,8 @@ footer {
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-995680065205252444/original/64c611cd-693a-460c-ba2e-daa1b90d7d9c.jpeg?im_w=720" alt="Cozy interior">
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-995680065205252444/original/b16c6d63-8657-4e21-845a-373b2f18173f.jpeg?im_w=720" alt="Cozy kitchen">
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-995680065205252444/original/633a5320-dd5f-49ca-9c24-a9100e500e69.jpeg?im_w=720" alt="Cozy bedroom">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6OTk1NjgwMDY1MjA1MjUyNDQ0/original/96085e80-01cd-45a2-8339-371f8196a9d6.jpeg?im_w=720" alt="Cozy outdoor">
+          <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=720,fit=crop/d951jEVRQ1c6lk75/cozy-homepage-Yg2jMqj69zIL63l9.jpg" alt="Cozy front">
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
           <button class="gallery-nav next">&rsaquo;</button>
@@ -1033,16 +500,8 @@ footer {
           <h3 class="property-name">Blueberry Cozy</h3>
           <div class="property-specs">3 bedrooms &middot; 5 beds &middot; 1 bath &middot; Sleeps 7</div>
           <p class="property-desc">Spacious and peaceful home on a quiet country road. Beautiful kitchen, outdoor grill, porch with swing, Adirondack chairs, hammock, and fire pit. Half a mile from the farm.</p>
-          <div class="property-highlights">
-            <span class="highlight-tag">Quiet Road</span>
-            <span class="highlight-tag">Porch Swing</span>
-            <span class="highlight-tag">Hammock</span>
-            <span class="highlight-tag">Near Farm</span>
-          </div>
-          <div class="property-cta">
-            <a href="https://airbnb.com/h/blueberrycozy" target="_blank" class="btn btn-green">Book on Airbnb</a>
-            <a href="#contact" class="btn btn-ghost">Inquire</a>
-          </div>
+          <div class="property-highlights"><span class="highlight-tag">Quiet Road</span><span class="highlight-tag">Porch Swing</span><span class="highlight-tag">Hammock</span><span class="highlight-tag">Near Farm</span></div>
+          <div class="property-cta"><a href="https://airbnb.com/h/blueberrycozy" target="_blank" class="btn btn-green">Book on Airbnb</a><a href="#contact" class="btn btn-ghost">Inquire</a></div>
         </div>
       </div>
 
@@ -1053,6 +512,8 @@ footer {
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/e1c11a27-a814-4c3c-a300-0cf7d0191069.jpeg?im_w=720" alt="Nestled interior">
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/45dd218c-bcf4-4e6b-baa5-af164bd17c45.jpeg?im_w=720" alt="Nestled kitchen">
           <img src="https://a0.muscache.com/im/pictures/miso/Hosting-1411558074153902245/original/b61e7d86-ec89-42ca-bff2-a2cb1fd01a1c.jpeg?im_w=720" alt="Nestled bedroom">
+          <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/1be8884f-9167-4e37-a6b6-88ecc20f4ca5.jpeg?im_w=720" alt="Nestled view">
+          <img src="https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=720,fit=crop/d951jEVRQ1c6lk75/nestled-homepage-AzGXW3Xgp6iW7xLJ.jpg" alt="Nestled front">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -1062,16 +523,8 @@ footer {
           <h3 class="property-name">Blueberry Nestled</h3>
           <div class="property-specs">3 bedrooms &middot; 3 beds &middot; 2 baths &middot; Sleeps 6</div>
           <p class="property-desc">Private retreat at the end of a winding driveway. Charcoal grill, netted gazebo for outdoor dining, and total peace and quiet. Perfect 5-star rating from every guest.</p>
-          <div class="property-highlights">
-            <span class="highlight-tag">Perfect 5.0 Rating</span>
-            <span class="highlight-tag">Very Private</span>
-            <span class="highlight-tag">Gazebo</span>
-            <span class="highlight-tag">Near Farm</span>
-          </div>
-          <div class="property-cta">
-            <a href="https://airbnb.com/h/blueberrynestled" target="_blank" class="btn btn-green">Book on Airbnb</a>
-            <a href="#contact" class="btn btn-ghost">Inquire</a>
-          </div>
+          <div class="property-highlights"><span class="highlight-tag">Perfect 5.0 Rating</span><span class="highlight-tag">Very Private</span><span class="highlight-tag">Gazebo</span><span class="highlight-tag">Near Farm</span></div>
+          <div class="property-cta"><a href="https://airbnb.com/h/blueberrynestled" target="_blank" class="btn btn-green">Book on Airbnb</a><a href="#contact" class="btn btn-ghost">Inquire</a></div>
         </div>
       </div>
 
@@ -1079,47 +532,57 @@ footer {
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
+<!-- TESTIMONIALS - DIVERSIFIED -->
 <section id="testimonials">
   <div class="container">
     <div class="reveal">
       <div class="section-tag">Guest Reviews</div>
       <h2 class="section-title">Guests keep coming back</h2>
-      <p class="section-subtitle">Over 145 reviews across our six homes with a combined 4.96 average. Here's what people are saying.</p>
+      <p class="section-subtitle">Over 145 reviews across our six homes with a combined 4.96 average.</p>
     </div>
-
     <div class="testimonials-grid">
       <div class="testimonial reveal">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">We organized 10 cousins in their 20s and 30s to stay while we celebrated their grandmother's 90th birthday all weekend. The rest of us visited and fed the animals, walked the wooded trails, and played football on the lawn. The house was perfect for a large group.</p>
+        <p class="testimonial-text">We organized 10 cousins in their 20s and 30s to stay while we celebrated their grandmother's 90th birthday all weekend. We fed the animals, walked the wooded trails, and played football on the lawn. The house was perfect for a large group.</p>
         <div class="testimonial-source">Airbnb Guest</div>
         <div class="testimonial-house">Blueberry Farmhouse</div>
       </div>
       <div class="testimonial reveal">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">We hosted our family Thanksgiving dinner here with 16 guests. The house accommodated everyone comfortably. There are multiple spaces and kitchens which worked out well for cooking two turkeys and many other dishes. Very clean and comfortable. Highly recommend!</p>
+        <p class="testimonial-text">There were 15 of us and the house accommodated us comfortably. Spacious and clean &mdash; just right for a large get-together. Close to great outdoor recreation. The farm down the road was a highlight for the kids.</p>
         <div class="testimonial-source">Airbnb Guest</div>
+        <div class="testimonial-house">Blueberry Manor</div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">We hosted our family Thanksgiving here with 16 guests. Multiple kitchens worked perfectly for cooking two turkeys and many side dishes. Everyone enjoyed the farm animals too. Be sure to bring lots of carrots! Highly recommend.</p>
+        <div class="testimonial-source">VRBO Guest</div>
         <div class="testimonial-house">Blueberry Farmhouse</div>
       </div>
       <div class="testimonial reveal">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Very spacious, with plenty of room for everyone in our party of 14. Lots of room for games, reading, yoga. Everyone also enjoyed interacting with the farm animals. Be sure to bring lots of carrots!</p>
+        <p class="testimonial-text">Peaceful and beautiful. The hidden pond through the woods was magical &mdash; we brought books and sat there for hours. The fire pit was perfect in the evenings. A wonderful renovated farmhouse with everything you need.</p>
         <div class="testimonial-source">Airbnb Guest</div>
-        <div class="testimonial-house">Blueberry Farmhouse</div>
+        <div class="testimonial-house">Blueberry Pond</div>
       </div>
       <div class="testimonial reveal">
         <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">There were 15 of us, and the house accommodated us comfortably. It is spacious and clean &mdash; just right for a large get together. Close to a lot of great outdoor recreation.</p>
+        <p class="testimonial-text">Exactly what we needed for a quiet family weekend. The kids loved the swings and hammock, we loved the porch and fire pit. Clean, well-kept, and Susan was a wonderful host. Already planning our next visit.</p>
         <div class="testimonial-source">Airbnb Guest</div>
-        <div class="testimonial-house">Blueberry Farmhouse</div>
+        <div class="testimonial-house">Blueberry Oasis</div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">So private and peaceful at the end of the winding driveway. The gazebo was great for dinner outdoors. We grilled every night and made s'mores by the fire. A true retreat from city life. Can't wait to return.</p>
+        <div class="testimonial-source">Airbnb Guest</div>
+        <div class="testimonial-house">Blueberry Nestled</div>
       </div>
     </div>
-
     <div class="overall-rating reveal">
       <div class="big-number">4.96</div>
       <div class="rating-detail">
         <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p>Average across 145+ reviews on Airbnb &middot; Superhost status &middot; 5 years hosting</p>
+        <p>Average across 145+ reviews on Airbnb &amp; VRBO &middot; Superhost status &middot; 5 years hosting</p>
       </div>
       <div class="badge-row">
         <span class="badge">Top 1% on Airbnb</span>
@@ -1130,53 +593,27 @@ footer {
   </div>
 </section>
 
-<!-- GROUP BOOKING -->
+<!-- GROUPS -->
 <section id="groups">
   <div class="container">
     <div class="group-header reveal">
       <div class="section-tag">Group Stays</div>
       <h2 class="section-title">The perfect setup for large groups</h2>
-      <p class="section-subtitle">All six homes are within three miles of each other. Combine homes to fit your group, from an intimate family weekend to a 80-person reunion.</p>
+      <p class="section-subtitle">All six homes are within three miles of each other. Combine homes to fit your group, from an intimate family weekend to an 80-person reunion.</p>
     </div>
-
     <div class="group-combos reveal">
       <h3>Popular combinations</h3>
-      <div class="combo">
-        <div class="combo-houses">Blueberry Manor <span class="combo-plus">+</span> Farmhouse</div>
-        <div class="combo-total">44 guests</div>
-      </div>
-      <div class="combo">
-        <div class="combo-houses">Manor <span class="combo-plus">+</span> Farmhouse <span class="combo-plus">+</span> Pond</div>
-        <div class="combo-total">58 guests</div>
-      </div>
-      <div class="combo">
-        <div class="combo-houses">Manor <span class="combo-plus">+</span> Farmhouse <span class="combo-plus">+</span> Pond <span class="combo-plus">+</span> Oasis</div>
-        <div class="combo-total">67 guests</div>
-      </div>
-      <div class="combo">
-        <div class="combo-houses">All six homes combined</div>
-        <div class="combo-total">80 guests</div>
-      </div>
+      <div class="combo"><div class="combo-houses">Blueberry Manor <span class="combo-plus">+</span> Farmhouse</div><div class="combo-total">44 guests</div></div>
+      <div class="combo"><div class="combo-houses">Manor <span class="combo-plus">+</span> Farmhouse <span class="combo-plus">+</span> Pond</div><div class="combo-total">58 guests</div></div>
+      <div class="combo"><div class="combo-houses">Manor <span class="combo-plus">+</span> Farmhouse <span class="combo-plus">+</span> Pond <span class="combo-plus">+</span> Oasis</div><div class="combo-total">67 guests</div></div>
+      <div class="combo"><div class="combo-houses">All six homes combined</div><div class="combo-total">80 guests</div></div>
     </div>
-
     <div class="group-grid reveal">
-      <div class="group-card">
-        <h4>Reunions & Celebrations</h4>
-        <p>Birthday milestones, family reunions, anniversary weekends. Multiple homes give everyone private space while the farm and porches are perfect for gathering together.</p>
-      </div>
-      <div class="group-card">
-        <h4>Wedding Parties</h4>
-        <p>House the wedding party and family across our homes. Cook together in the big kitchens, celebrate around the fire pit, and enjoy the Catskill scenery.</p>
-      </div>
-      <div class="group-card">
-        <h4>Holiday Getaways</h4>
-        <p>Thanksgiving, Passover, summer vacation &mdash; our kitchens are equipped for large-scale cooking and the dining tables seat up to 18 per home.</p>
-      </div>
+      <div class="group-card"><h4>Reunions &amp; Celebrations</h4><p>Birthday milestones, family reunions, anniversary weekends. Multiple homes give everyone private space while the farm and porches are perfect for gathering.</p></div>
+      <div class="group-card"><h4>Wedding Parties</h4><p>House the wedding party and family across our homes. Cook together in the big kitchens, celebrate around the fire pit, and enjoy the Catskill scenery.</p></div>
+      <div class="group-card"><h4>Holiday Getaways</h4><p>Thanksgiving, Passover, summer vacation &mdash; our kitchens are equipped for large-scale cooking and the dining tables seat up to 18 per home.</p></div>
     </div>
-
-    <div class="group-cta reveal">
-      <a href="#contact" class="btn btn-primary">Tell Us About Your Group</a>
-    </div>
+    <div class="group-cta reveal"><a href="#contact" class="btn btn-primary">Tell Us About Your Group</a></div>
   </div>
 </section>
 
@@ -1188,48 +625,22 @@ footer {
       <h2 class="section-title">Your days here</h2>
       <p class="section-subtitle">From morning hikes to evening bonfires, every day feels full.</p>
     </div>
-
+    <div class="exp-photo-grid reveal">
+      <div class="exp-photo"><img src="https://a0.muscache.com/im/pictures/miso/Hosting-46175687/original/ed802933-655a-4552-af54-f911f60b99d4.jpeg?im_w=720" alt="Farm and animals"><div class="exp-photo-label">Visit the farm &amp; feed the animals</div></div>
+      <div class="exp-photo"><img src="https://a0.muscache.com/im/pictures/miso/Hosting-875513415730440149/original/efdc4bed-c236-40de-a1f2-5b052ef89a2d.jpeg?im_w=720" alt="Cozy gathering"><div class="exp-photo-label">Gather by the fire</div></div>
+      <div class="exp-photo"><img src="https://a0.muscache.com/im/pictures/33bb3acc-d5b6-4fab-868b-9f7fc1b5d467.jpg?im_w=720" alt="Living room"><div class="exp-photo-label">Spacious living rooms</div></div>
+      <div class="exp-photo"><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/67ebf379-f46a-4dfa-bd7c-b6643040b941.jpeg?im_w=720" alt="Dining"><div class="exp-photo-label">Cook &amp; dine together</div></div>
+      <div class="exp-photo"><img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/e1c11a27-a814-4c3c-a300-0cf7d0191069.jpeg?im_w=720" alt="Porch"><div class="exp-photo-label">Relax on the porch</div></div>
+    </div>
     <div class="experience-grid">
-      <div class="exp-card reveal">
-        <span class="exp-icon">&#x1F40E;</span>
-        <h4>Visit the Farm</h4>
-        <p>Horses, donkeys, mules, sheep, goats, and chickens. Walk over and feed the animals &mdash; bring carrots! Half a mile from most homes.</p>
-      </div>
-      <div class="exp-card reveal">
-        <span class="exp-icon">&#x1FAB7;</span>
-        <h4>Pick Blueberries</h4>
-        <p>In July, the fields around the homes are covered in wild blueberry bushes. Pick to your heart's content and bring them home for pies.</p>
-      </div>
-      <div class="exp-card reveal">
-        <span class="exp-icon">&#x1F6B6;</span>
-        <h4>Hiking Trails</h4>
-        <p>300 acres of trails on the property, plus world-class hiking in the Shawangunks, Neversink Gorge with 3 waterfalls, and Sam's Point ice caves.</p>
-      </div>
-      <div class="exp-card reveal">
-        <span class="exp-icon">&#x1F525;</span>
-        <h4>Bonfires & S'mores</h4>
-        <p>Every home has a fire pit. Roast marshmallows, tell stories, and watch the stars &mdash; no light pollution up here.</p>
-      </div>
-      <div class="exp-card reveal">
-        <span class="exp-icon">&#x1F3D3;</span>
-        <h4>Pool & Pickleball</h4>
-        <p>Community pool one mile away (seasonal). Brand new free pickleball and basketball courts in town.</p>
-      </div>
-      <div class="exp-card reveal">
-        <span class="exp-icon">&#x1F3A2;</span>
-        <h4>Family Attractions</h4>
-        <p>Legoland (45 min), Kartrite Indoor Water Park (30 min), Resorts World Casino (30 min), Bethel Woods concerts, boat rentals on mountain lakes.</p>
-      </div>
-      <div class="exp-card reveal">
-        <span class="exp-icon">&#x1F374;</span>
-        <h4>Local Dining & Nightlife</h4>
-        <p>Mountaindale has live music, a creek-side bar, and great pizza. Woodburn has kosher supermarkets. Ellenville and Monticello have dozens of restaurants.</p>
-      </div>
-      <div class="exp-card reveal">
-        <span class="exp-icon">&#x1F54D;</span>
-        <h4>Nearby Synagogues</h4>
-        <p>Walking distance to Orthodox synagogues in summer. Year-round synagogue in town (2 miles). Kosher supermarkets in Woodburn, less than 5 miles.</p>
-      </div>
+      <div class="exp-card reveal"><span class="exp-icon">&#x1F40E;</span><h4>Visit the Farm</h4><p>Horses, donkeys, mules, sheep, goats, and chickens. Walk over and feed the animals &mdash; bring carrots! Half a mile from most homes.</p></div>
+      <div class="exp-card reveal"><span class="exp-icon">&#x1FAB7;</span><h4>Pick Blueberries</h4><p>In July, the fields are covered in wild blueberry bushes. Pick to your heart's content and bring them home for pies and pancakes.</p></div>
+      <div class="exp-card reveal"><span class="exp-icon">&#x1F6B6;</span><h4>Hiking Trails</h4><p>300 acres of trails on the property, plus world-class hiking in the Shawangunks, Neversink Gorge with 3 waterfalls, and Sam's Point ice caves.</p></div>
+      <div class="exp-card reveal"><span class="exp-icon">&#x1F525;</span><h4>Bonfires &amp; S'mores</h4><p>Every home has a fire pit. Roast marshmallows, tell stories, and watch the stars &mdash; no light pollution up here.</p></div>
+      <div class="exp-card reveal"><span class="exp-icon">&#x1F3D3;</span><h4>Pool &amp; Pickleball</h4><p>Community pool one mile away (seasonal). Brand new free pickleball and basketball courts in town.</p></div>
+      <div class="exp-card reveal"><span class="exp-icon">&#x1F3A2;</span><h4>Family Attractions</h4><p>Legoland (45 min), Kartrite Indoor Water Park (30 min), Resorts World Casino (30 min), Bethel Woods concerts, boat rentals on mountain lakes.</p></div>
+      <div class="exp-card reveal"><span class="exp-icon">&#x1F374;</span><h4>Local Dining &amp; Nightlife</h4><p>Mountaindale has live music, a creek-side bar, and great pizza. Woodburn has kosher supermarkets. Ellenville and Monticello have dozens of restaurants.</p></div>
+      <div class="exp-card reveal"><span class="exp-icon">&#x1F54D;</span><h4>Nearby Synagogues</h4><p>Walking distance to Orthodox synagogues in summer. Year-round synagogue in town (2 miles). Kosher supermarkets in Woodburn, less than 5 miles.</p></div>
     </div>
   </div>
 </section>
@@ -1241,77 +652,29 @@ footer {
       <div class="section-tag">Get In Touch</div>
       <h2 class="section-title">Plan your stay</h2>
     </div>
-
     <div class="contact-wrap">
       <div class="contact-info reveal">
         <h3>We'd love to help you plan the perfect getaway</h3>
         <p>Whether you need one home for a quiet weekend or all six for a family reunion, we'll help you find the right combination. Tell us about your group and we'll get back to you within 24 hours.</p>
-
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Mountain Dale &amp; Greenfield Park, Sullivan County, NY
-        </div>
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          Message us through Airbnb or use this form
-        </div>
-        <div class="contact-detail">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-          90 minutes from the George Washington Bridge
-        </div>
-
+        <div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Mountain Dale &amp; Greenfield Park, Sullivan County, NY</div>
+        <div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Message us through Airbnb or use this form</div>
+        <div class="contact-detail"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>90 minutes from the George Washington Bridge</div>
         <div style="margin-top: 2rem;">
           <a href="https://www.airbnb.com/users/show/58255552" target="_blank" class="btn btn-green" style="margin-right: 0.8rem;">View All on Airbnb</a>
           <a href="https://www.instagram.com/blueberrymountainfarms" target="_blank" class="btn btn-ghost" style="border-color: var(--sage); color: var(--deep-green);">Instagram (11K followers)</a>
         </div>
       </div>
-
       <div class="contact-form reveal" id="inquiryForm">
         <div class="form-row">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="Full name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="you@example.com" required>
-          </div>
+          <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" placeholder="Full name" required></div>
+          <div class="form-group"><label for="email">Email</label><input type="email" id="email" placeholder="you@example.com" required></div>
         </div>
         <div class="form-row">
-          <div class="form-group">
-            <label for="guests">Group Size</label>
-            <select id="guests">
-              <option value="">How many guests?</option>
-              <option>1-6 (one small home)</option>
-              <option>7-14 (one medium home)</option>
-              <option>15-24 (one large home)</option>
-              <option>25-44 (two homes)</option>
-              <option>45-67 (three or four homes)</option>
-              <option>68-80+ (five or six homes)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="dates">Preferred Dates</label>
-            <input type="text" id="dates" placeholder="e.g. July 4-7 weekend">
-          </div>
+          <div class="form-group"><label for="guests">Group Size</label><select id="guests"><option value="">How many guests?</option><option>1-6 (one small home)</option><option>7-14 (one medium home)</option><option>15-24 (one large home)</option><option>25-44 (two homes)</option><option>45-67 (three or four homes)</option><option>68-80+ (five or six homes)</option></select></div>
+          <div class="form-group"><label for="dates">Preferred Dates</label><input type="text" id="dates" placeholder="e.g. July 4-7 weekend"></div>
         </div>
-        <div class="form-group">
-          <label for="occasion">What's the Occasion?</label>
-          <select id="occasion">
-            <option value="">Select one</option>
-            <option>Family reunion</option>
-            <option>Birthday / Anniversary</option>
-            <option>Wedding party</option>
-            <option>Holiday gathering</option>
-            <option>Friends getaway</option>
-            <option>Corporate retreat</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="message">Anything else we should know?</label>
-          <textarea id="message" placeholder="Tell us about your group, any special needs, or questions you have..."></textarea>
-        </div>
+        <div class="form-group"><label for="occasion">What's the Occasion?</label><select id="occasion"><option value="">Select one</option><option>Family reunion</option><option>Birthday / Anniversary</option><option>Wedding party</option><option>Holiday gathering</option><option>Friends getaway</option><option>Corporate retreat</option><option>Other</option></select></div>
+        <div class="form-group"><label for="message">Anything else we should know?</label><textarea id="message" placeholder="Tell us about your group, any special needs, or questions..."></textarea></div>
         <button type="button" class="form-submit" onclick="submitForm()">Send Inquiry</button>
         <div id="formMessage" style="display:none; margin-top: 1rem; padding: 1rem; border-radius: 8px; text-align: center;"></div>
       </div>
@@ -1324,11 +687,8 @@ footer {
   <div class="footer-brand">Blueberry Mountain Farms</div>
   <div class="footer-tagline">Six homes on 300 acres in the Sullivan County Catskills</div>
   <div class="footer-links">
-    <a href="#properties">Our Homes</a>
-    <a href="#groups">Group Stays</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#experience">Things to Do</a>
-    <a href="#contact">Inquire</a>
+    <a href="#properties">Our Homes</a><a href="#groups">Group Stays</a><a href="#testimonials">Reviews</a>
+    <a href="#experience">Things to Do</a><a href="#contact">Inquire</a>
     <a href="https://www.airbnb.com/users/show/58255552" target="_blank">Airbnb</a>
   </div>
   <div class="footer-social">
@@ -1339,104 +699,42 @@ footer {
 </footer>
 
 <script>
-// === NAV SCROLL ===
 const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 80);
-});
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 80); });
+document.getElementById('navToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });
+document.querySelectorAll('.nav-links a').forEach(a => { a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')); });
 
-// === NAV TOGGLE ===
-document.getElementById('navToggle').addEventListener('click', () => {
-  document.getElementById('navLinks').classList.toggle('open');
-});
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
-});
-
-// === HERO SLIDESHOW ===
 const heroSlides = document.querySelectorAll('.hero-slide');
 let heroIdx = 0;
-setInterval(() => {
-  heroSlides[heroIdx].classList.remove('active');
-  heroIdx = (heroIdx + 1) % heroSlides.length;
-  heroSlides[heroIdx].classList.add('active');
-}, 5000);
+setInterval(() => { heroSlides[heroIdx].classList.remove('active'); heroIdx = (heroIdx + 1) % heroSlides.length; heroSlides[heroIdx].classList.add('active'); }, 5000);
 
-// === PROPERTY GALLERIES ===
 document.querySelectorAll('[data-gallery]').forEach(gallery => {
   const imgs = gallery.querySelectorAll('img');
-  const dotsContainer = gallery.querySelector('.gallery-dots');
-  const prevBtn = gallery.querySelector('.gallery-nav.prev');
-  const nextBtn = gallery.querySelector('.gallery-nav.next');
-  let current = 0;
-
-  // Create dots
-  imgs.forEach((_, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'gallery-dot' + (i === 0 ? ' active' : '');
-    dot.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(dot);
-  });
-
-  function goTo(idx) {
-    imgs[current].classList.remove('active');
-    dotsContainer.children[current].classList.remove('active');
-    current = idx;
-    imgs[current].classList.add('active');
-    dotsContainer.children[current].classList.add('active');
-  }
-
-  prevBtn.addEventListener('click', () => goTo((current - 1 + imgs.length) % imgs.length));
-  nextBtn.addEventListener('click', () => goTo((current + 1) % imgs.length));
+  const dotsC = gallery.querySelector('.gallery-dots');
+  const prev = gallery.querySelector('.gallery-nav.prev');
+  const next = gallery.querySelector('.gallery-nav.next');
+  let cur = 0;
+  imgs.forEach((_, i) => { const d = document.createElement('button'); d.className = 'gallery-dot' + (i === 0 ? ' active' : ''); d.addEventListener('click', () => go(i)); dotsC.appendChild(d); });
+  function go(idx) { imgs[cur].classList.remove('active'); dotsC.children[cur].classList.remove('active'); cur = idx; imgs[cur].classList.add('active'); dotsC.children[cur].classList.add('active'); }
+  prev.addEventListener('click', () => go((cur - 1 + imgs.length) % imgs.length));
+  next.addEventListener('click', () => go((cur + 1) % imgs.length));
 });
 
-// === SCROLL REVEAL ===
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// === FORM HANDLER ===
 function submitForm() {
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const guests = document.getElementById('guests').value;
-  const dates = document.getElementById('dates').value;
-  const occasion = document.getElementById('occasion').value;
-  const message = document.getElementById('message').value;
-  const msgDiv = document.getElementById('formMessage');
-
-  if (!name || !email) {
-    msgDiv.style.display = 'block';
-    msgDiv.style.background = '#FEE2E2';
-    msgDiv.style.color = '#991B1B';
-    msgDiv.textContent = 'Please fill in your name and email.';
-    return;
-  }
-
-  // Compose mailto
-  const subject = encodeURIComponent('Blueberry Mountain Farms Inquiry' + (occasion ? ' - ' + occasion : ''));
-  const body = encodeURIComponent(
-    'Name: ' + name + '\n' +
-    'Email: ' + email + '\n' +
-    'Group Size: ' + guests + '\n' +
-    'Dates: ' + dates + '\n' +
-    'Occasion: ' + occasion + '\n\n' +
-    'Message:\n' + message
-  );
-
-  window.location.href = 'mailto:blueberrymountainfarm@blueberrymountainfarms.com?subject=' + subject + '&body=' + body;
-
-  msgDiv.style.display = 'block';
-  msgDiv.style.background = '#D1FAE5';
-  msgDiv.style.color = '#065F46';
-  msgDiv.textContent = 'Opening your email client... If it doesn\'t open, email us at blueberrymountainfarm@blueberrymountainfarms.com';
+  const n = document.getElementById('name').value, e = document.getElementById('email').value;
+  const g = document.getElementById('guests').value, d = document.getElementById('dates').value;
+  const o = document.getElementById('occasion').value, m = document.getElementById('message').value;
+  const msg = document.getElementById('formMessage');
+  if (!n || !e) { msg.style.display = 'block'; msg.style.background = '#FEE2E2'; msg.style.color = '#991B1B'; msg.textContent = 'Please fill in your name and email.'; return; }
+  const subj = encodeURIComponent('Blueberry Mountain Farms Inquiry' + (o ? ' - ' + o : ''));
+  const body = encodeURIComponent('Name: ' + n + '\nEmail: ' + e + '\nGroup Size: ' + g + '\nDates: ' + d + '\nOccasion: ' + o + '\n\nMessage:\n' + m);
+  window.location.href = 'mailto:blueberrymountainfarm@blueberrymountainfarms.com?subject=' + subj + '&body=' + body;
+  msg.style.display = 'block'; msg.style.background = '#D1FAE5'; msg.style.color = '#065F46';
+  msg.textContent = "Opening your email client... If it doesn't open, email us at blueberrymountainfarm@blueberrymountainfarms.com";
 }
 </script>
-
 </body>
 </html>
