@@ -57,7 +57,8 @@ h1, h2, h3, h4 {
 nav {
   position: fixed; top: 0; width: 100%; z-index: 100;
   padding: 1rem 2rem;
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between;
+  align-items: center;
   transition: all 0.4s ease;
 }
 nav.scrolled {
@@ -69,12 +70,14 @@ nav.scrolled {
 .nav-logo {
   font-family: 'Playfair Display', serif;
   color: white; font-size: 1.3rem; font-weight: 700;
-  text-decoration: none; letter-spacing: 0.02em;
+  text-decoration: none;
+  letter-spacing: 0.02em;
 }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
 .nav-links a {
   color: rgba(255,255,255,0.9); text-decoration: none;
-  font-size: 0.9rem; font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 500;
   letter-spacing: 0.05em; text-transform: uppercase;
   transition: color 0.3s;
 }
@@ -85,7 +88,8 @@ nav.scrolled {
 /* HERO */
 .hero {
   position: relative; height: 100vh; min-height: 600px;
-  display: flex; align-items: center; justify-content: center; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
 }
 .hero-bg {
   position: absolute; inset: 0;
@@ -107,13 +111,15 @@ nav.scrolled {
 
 .hero-content {
   position: relative; z-index: 2; text-align: center;
-  color: white; max-width: 800px; padding: 0 2rem;
+  color: white;
+  max-width: 800px; padding: 0 2rem;
   animation: fadeUp 1.2s ease both;
 }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 .hero-tag {
   font-family: 'Source Sans 3', sans-serif; font-weight: 500;
-  font-size: 0.85rem; letter-spacing: 0.25em; text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.25em; text-transform: uppercase;
   color: var(--gold-light); margin-bottom: 1.2rem;
 }
 .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; margin-bottom: 1.2rem; text-shadow: 0 2px 30px rgba(0,0,0,0.3); }
@@ -162,7 +168,8 @@ section { padding: 6rem 2rem; }
 .gallery-dot.active { background: white; }
 .gallery-nav {
   position: absolute; top: 50%; transform: translateY(-50%);
-  background: rgba(255,255,255,0.85); border: none; width: 32px; height: 32px;
+  background: rgba(255,255,255,0.85);
+  border: none; width: 32px; height: 32px;
   border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
   opacity: 0; transition: opacity 0.3s; z-index: 2; font-size: 1rem; color: var(--charcoal);
 }
@@ -203,7 +210,8 @@ section { padding: 6rem 2rem; }
 .testimonial-house { font-size: 0.78rem; color: var(--sage); }
 .overall-rating {
   display: flex; align-items: center; gap: 2rem; margin-top: 3rem;
-  padding: 1.5rem 2rem; background: white; border-radius: 12px;
+  padding: 1.5rem 2rem;
+  background: white; border-radius: 12px;
   box-shadow: 0 2px 15px rgba(0,0,0,0.04); flex-wrap: wrap;
 }
 .overall-rating .big-number { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 700; color: var(--deep-green); }
@@ -254,7 +262,8 @@ section { padding: 6rem 2rem; }
   position: absolute; bottom: 0; left: 0; right: 0;
   padding: 1rem;
   background: linear-gradient(transparent, rgba(0,0,0,0.65));
-  color: white; font-weight: 600; font-size: 0.9rem;
+  color: white; font-weight: 600;
+  font-size: 0.9rem;
 }
 .experience-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
 .exp-card { background: white; border-radius: 12px; padding: 2rem; text-align: center; transition: transform 0.3s; box-shadow: 0 2px 15px rgba(0,0,0,0.04); }
@@ -333,13 +342,10 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
 </head>
 <body>
 
-<!-- URGENCY BANNER -->
 <div class="urgency-banner">
-  <strong>Summer 2026:</strong> July &amp; August weekends are filling up fast.
-  <a href="#contact">Reserve your dates &rarr;</a>
+  <strong>Summer 2026:</strong> July &amp; August weekends are filling up fast. <a href="#contact">Reserve your dates &rarr;</a>
 </div>
 
-<!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">Blueberry Mountain Farms</a>
   <ul class="nav-links" id="navLinks">
@@ -352,7 +358,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
   <button class="nav-toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-slides">
     <div class="hero-slide active"></div>
@@ -380,7 +385,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
   <div class="hero-scroll"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><polyline points="7 13 12 18 17 13"/><line x1="12" y1="6" x2="12" y2="18"/></svg></div>
 </section>
 
-<!-- PROPERTIES -->
 <section id="properties">
   <div class="container">
     <div class="reveal">
@@ -388,9 +392,9 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
       <h2 class="section-title">Six homes, one unforgettable stay</h2>
       <p class="section-subtitle">All within three miles of each other on quiet country roads in Mountain Dale and Greenfield Park.</p>
     </div>
+    
     <div class="properties-grid">
 
-      <!-- MANOR -->
       <div class="property-card reveal">
         <div class="property-gallery" data-gallery>
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NTk4MjY3MTY4MTEzMjUxMjk0/original/e3dd70be-d0ac-4c91-9c9e-0cc77a078610.jpeg?im_w=720" alt="Blueberry Manor exterior" class="active">
@@ -413,7 +417,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
         </div>
       </div>
 
-      <!-- FARMHOUSE -->
       <div class="property-card reveal">
         <div class="property-gallery" data-gallery>
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6NDYxNzU2ODc%3D/original/56a73cef-1819-45f4-a537-cbc11f1b0176.jpeg?im_w=720" alt="Blueberry Farmhouse" class="active">
@@ -437,7 +440,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
         </div>
       </div>
 
-      <!-- POND -->
       <div class="property-card reveal">
         <div class="property-gallery" data-gallery>
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-U3RheVN1cHBseUxpc3Rpbmc6ODc1NTEzNDE1NzMwNDQwMTQ5/original/502e3356-7efa-4046-bbc6-3f20c3cddc65.jpeg?im_w=720" alt="Blueberry Pond House" class="active">
@@ -460,7 +462,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
         </div>
       </div>
 
-      <!-- OASIS -->
       <div class="property-card reveal">
         <div class="property-gallery" data-gallery>
           <img src="https://a0.muscache.com/im/pictures/f82effef-123f-4a4f-b81a-4cd8b66bb8ba.jpg?im_w=720" alt="Blueberry Oasis" class="active">
@@ -483,7 +484,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
         </div>
       </div>
 
-      <!-- COZY -->
       <div class="property-card reveal">
         <div class="property-gallery" data-gallery>
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-995680065205252444/original/f31e82a6-f855-4fbd-8a42-251999c160e5.jpeg?im_w=720" alt="Blueberry Cozy" class="active">
@@ -505,7 +505,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
         </div>
       </div>
 
-      <!-- NESTLED -->
       <div class="property-card reveal">
         <div class="property-gallery" data-gallery>
           <img src="https://a0.muscache.com/im/pictures/hosting/Hosting-1411558074153902245/original/cdceba34-c2bf-45e7-ba53-7ee4bb8e707f.jpeg?im_w=720" alt="Blueberry Nestled" class="active">
@@ -532,7 +531,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
   </div>
 </section>
 
-<!-- TESTIMONIALS - DIVERSIFIED -->
 <section id="testimonials">
   <div class="container">
     <div class="reveal">
@@ -593,7 +591,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
   </div>
 </section>
 
-<!-- GROUPS -->
 <section id="groups">
   <div class="container">
     <div class="group-header reveal">
@@ -617,7 +614,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
     <div class="reveal">
@@ -645,7 +641,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="container">
     <div class="reveal">
@@ -673,6 +668,11 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
           <div class="form-group"><label for="guests">Group Size</label><select id="guests"><option value="">How many guests?</option><option>1-6 (one small home)</option><option>7-14 (one medium home)</option><option>15-24 (one large home)</option><option>25-44 (two homes)</option><option>45-67 (three or four homes)</option><option>68-80+ (five or six homes)</option></select></div>
           <div class="form-group"><label for="dates">Preferred Dates</label><input type="text" id="dates" placeholder="e.g. July 4-7 weekend"></div>
         </div>
+
+        <div style="display:none;" aria-hidden="true">
+          <input type="text" id="subject_line" name="subject_line" tabindex="-1" autocomplete="off">
+        </div>
+
         <div class="form-group"><label for="occasion">What's the Occasion?</label><select id="occasion"><option value="">Select one</option><option>Family reunion</option><option>Birthday / Anniversary</option><option>Wedding party</option><option>Holiday gathering</option><option>Friends getaway</option><option>Corporate retreat</option><option>Other</option></select></div>
         <div class="form-group"><label for="message">Anything else we should know?</label><textarea id="message" placeholder="Tell us about your group, any special needs, or questions..."></textarea></div>
         <button type="button" class="form-submit" onclick="submitForm()">Send Inquiry</button>
@@ -682,7 +682,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-brand">Blueberry Mountain Farms</div>
   <div class="footer-tagline">Six homes on 300 acres in the Sullivan County Catskills</div>
@@ -724,16 +723,41 @@ const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.i
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 function submitForm() {
-  const n = document.getElementById('name').value, e = document.getElementById('email').value;
-  const g = document.getElementById('guests').value, d = document.getElementById('dates').value;
-  const o = document.getElementById('occasion').value, m = document.getElementById('message').value;
+  // 1. Honeypot check
+  const hp = document.getElementById('subject_line').value;
+  if (hp.length > 0) return; // Silent exit for bots
+
+  const n = document.getElementById('name').value;
+  const e = document.getElementById('email').value;
+  const g = document.getElementById('guests').value;
+  const d = document.getElementById('dates').value;
+  const o = document.getElementById('occasion').value;
+  const m = document.getElementById('message').value;
   const msg = document.getElementById('formMessage');
-  if (!n || !e) { msg.style.display = 'block'; msg.style.background = '#FEE2E2'; msg.style.color = '#991B1B'; msg.textContent = 'Please fill in your name and email.'; return; }
+
+  if (!n || !e) { 
+    msg.style.display = 'block'; 
+    msg.style.background = '#FEE2E2'; 
+    msg.style.color = '#991B1B';
+    msg.textContent = 'Please fill in your name and email.'; 
+    return;
+  }
+
+  // 2. Email Obfuscation
+  const u = "info";
+  const dom = "blueberrymountainfarms.com";
+  const addr = u + "@" + dom;
+
   const subj = encodeURIComponent('Blueberry Mountain Farms Inquiry' + (o ? ' - ' + o : ''));
   const body = encodeURIComponent('Name: ' + n + '\nEmail: ' + e + '\nGroup Size: ' + g + '\nDates: ' + d + '\nOccasion: ' + o + '\n\nMessage:\n' + m);
-  window.location.href = 'mailto:blueberrymountainfarm@blueberrymountainfarms.com?subject=' + subj + '&body=' + body;
-  msg.style.display = 'block'; msg.style.background = '#D1FAE5'; msg.style.color = '#065F46';
-  msg.textContent = "Opening your email client... If it doesn't open, email us at blueberrymountainfarm@blueberrymountainfarms.com";
+  
+  // 3. Trigger email client
+  window.location.href = 'mailto:' + addr + '?subject=' + subj + '&body=' + body;
+
+  msg.style.display = 'block'; 
+  msg.style.background = '#D1FAE5'; 
+  msg.style.color = '#065F46';
+  msg.textContent = "Opening your email client... If it doesn't open, email us at " + addr;
 }
 </script>
 </body>
