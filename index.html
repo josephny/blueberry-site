@@ -752,6 +752,45 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
       <div class="farm-img"><img src="images/farm/giant-tomato.jpg" alt="Giant heirloom tomato"><div class="farm-img-label">Giant heirloom tomatoes</div></div>
       <div class="farm-img"><img src="images/farm/horses-hay.jpg" alt="Horses eating hay"><div class="farm-img-label">Horses on the property</div></div>
     </div>
+    <div class="farm-gallery farm-gallery-extra reveal" id="farmGalleryExtra" style="margin-top: 0.6rem;">
+      <div class="farm-img"><img src="images/farm/feeding-calf.jpg" alt="Feeding a calf"><div class="farm-img-label">Feed the calves</div></div>
+      <div class="farm-img"><img src="images/farm/chickens.jpg" alt="Free-range chickens"><div class="farm-img-label">Free-range chickens</div></div>
+      <div class="farm-img"><img src="images/farm/greenhouse-harvest.jpg" alt="Harvest from the greenhouse"><div class="farm-img-label">Greenhouse harvest</div></div>
+      <div class="farm-img"><img src="images/farm/two-cows.jpg" alt="Two friendly cows"><div class="farm-img-label">Come say hello</div></div>
+      <div class="farm-img"><img src="images/farm/harvest-bounty.jpg" alt="Tomatoes, pumpkins and corn"><div class="farm-img-label">Tomatoes, pumpkins &amp; corn</div></div>
+      <div class="farm-img"><img src="images/farm/waterfall-swimming.jpg" alt="Swimming at local waterfall"><div class="farm-img-label">Swimming holes nearby</div></div>
+      <div class="farm-img"><img src="images/farm/farm-fresh-eggs.jpg" alt="Farm fresh eggs"><div class="farm-img-label">Farm-fresh eggs</div></div>
+      <div class="farm-img"><img src="images/farm/donkeys-friendly.jpg" alt="Friendly donkeys"><div class="farm-img-label">The friendliest donkeys</div></div>
+      <div class="farm-img"><img src="images/farm/fire-pit.jpg" alt="Fire pit area"><div class="farm-img-label">Fire pit for bonfires</div></div>
+      <div class="farm-img"><img src="images/farm/veggie-cart.jpg" alt="Fresh vegetables from the garden"><div class="farm-img-label">Fresh from the garden</div></div>
+    </div>
+    <div class="farm-gallery farm-gallery-extra reveal" style="margin-top: 0.6rem;">
+      <div class="farm-img"><img src="images/farm/wild-turkeys-field.jpg" alt="Wild turkeys in the field"><div class="farm-img-label">Wildlife on the property</div></div>
+      <div class="farm-img"><img src="images/farm/turkeys-closeup.jpg" alt="Farm turkeys"><div class="farm-img-label">Turkeys on the farm</div></div>
+      <div class="farm-img"><img src="images/farm/rooster-turkey.jpg" alt="Rooster and turkey"><div class="farm-img-label">Rooster &amp; friends</div></div>
+      <div class="farm-img"><img src="images/farm/corn-rows.jpg" alt="Corn growing in rows"><div class="farm-img-label">Corn rows in summer</div></div>
+      <div class="farm-img"><img src="images/farm/squash-field.jpg" alt="Squash growing"><div class="farm-img-label">Squash &amp; pumpkin patch</div></div>
+      <div class="farm-img"><img src="images/farm/hiking-cliff-vista.jpg" alt="Hiking in the Catskills"><div class="farm-img-label">Cliff views nearby</div></div>
+      <div class="farm-img"><img src="images/farm/farm-rows-sunset.jpg" alt="Farm rows at sunset"><div class="farm-img-label">Sunset over the farm</div></div>
+      <div class="farm-img"><img src="images/farm/chicken-coop.jpg" alt="Inside the chicken coop"><div class="farm-img-label">The chicken coop</div></div>
+      <div class="farm-img"><img src="images/farm/garden-growing.jpg" alt="Garden growing"><div class="farm-img-label">Crops growing in the sun</div></div>
+      <div class="farm-img"><img src="images/farm/farm-garden-rows.jpg" alt="Farm garden rows"><div class="farm-img-label">The farm garden</div></div>
+    </div>
+    <div class="farm-gallery farm-gallery-extra reveal" style="margin-top: 0.6rem;">
+      <div class="farm-img"><img src="images/farm/farmers-market-banner.jpg" alt="Blueberry Mountain Farms at the farmers market"><div class="farm-img-label">Farmers market stand</div></div>
+      <div class="farm-img"><img src="images/farm/farmers-market-dog.jpg" alt="At the market with the dog"><div class="farm-img-label">Market day</div></div>
+      <div class="farm-img"><img src="images/farm/farmers-market-2.jpg" alt="Selling fresh produce"><div class="farm-img-label">Fresh produce for sale</div></div>
+      <div class="farm-img"><img src="images/farm/corn-squash-garden.jpg" alt="Corn and squash"><div class="farm-img-label">Corn &amp; squash garden</div></div>
+      <div class="farm-img"><img src="images/farm/garden-greenhouses.jpg" alt="Garden and greenhouses"><div class="farm-img-label">Garden &amp; greenhouses</div></div>
+      <div class="farm-img"><img src="images/farm/green-field.jpg" alt="Rolling green field"><div class="farm-img-label">Rolling green fields</div></div>
+      <div class="farm-img"><img src="images/farm/farm-hoop-houses.jpg" alt="Hoop houses on the farm"><div class="farm-img-label">Hoop houses</div></div>
+      <div class="farm-img"><img src="images/farm/greenhouse-inside.jpg" alt="Inside the greenhouse"><div class="farm-img-label">Inside the greenhouse</div></div>
+      <div class="farm-img"><img src="images/farm/hay-bales-barn.jpg" alt="Hay bales in the barn"><div class="farm-img-label">Hay in the barn</div></div>
+      <div class="farm-img"><img src="images/farm/chickens-coop-inside.jpg" alt="Chickens inside the coop"><div class="farm-img-label">Happy chickens</div></div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;" class="reveal">
+      <a href="https://www.instagram.com/blueberrymountainfarms" target="_blank" class="btn btn-ghost" style="border-color: var(--sage); color: var(--deep-green);">See more on Instagram</a>
+    </div>
   </div>
 </section>
 
@@ -955,8 +994,38 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
 const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Set form action dynamically to prevent email scraping
-(function(){var f=document.getElementById('inquiryForm');var p=['info','blueberrymountainfarms.com'];f.action='https://formsubmit.co/'+p[0]+'@'+p[1];})();
+// Form submission via AJAX — never navigates away, never exposes email
+(function(){
+  var f=document.getElementById('inquiryForm');
+  var p=['info','blueberrymountainfarms.com'];
+  var url='https://formsubmit.co/ajax/'+p[0]+'@'+p[1];
+  f.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = f.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    fetch(url, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify(Object.fromEntries(new FormData(f)))
+    }).then(function(r){ return r.json(); }).then(function(data){
+      if(data.success){
+        btn.textContent = 'Sent! We\'ll be in touch soon.';
+        btn.style.background = 'var(--forest)';
+        f.reset();
+        setTimeout(function(){ btn.textContent='Send Inquiry'; btn.disabled=false; btn.style.background=''; }, 5000);
+      } else {
+        btn.textContent = 'Error — please email us directly';
+        btn.disabled = false;
+        setTimeout(function(){ btn.textContent='Send Inquiry'; }, 4000);
+      }
+    }).catch(function(){
+      btn.textContent = 'Error — please try again';
+      btn.disabled = false;
+      setTimeout(function(){ btn.textContent='Send Inquiry'; }, 4000);
+    });
+  });
+})();
 
 // Floating CTA: show after scrolling past hero, hide in contact section
 const floatingCta = document.getElementById('floatingCta');
