@@ -923,11 +923,6 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
         </div>
       </div>
       <form class="contact-form reveal" id="inquiryForm" action="#" method="POST">
-        <input type="hidden" name="_subject" value="New Inquiry from blueberrymountainfarms.com">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://www.blueberrymountainfarms.com/#contact">
-        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
         <input type="hidden" name="Property Interest" id="propertyInterest" value="">
         <div class="form-row">
           <div class="form-group"><label for="name">Your Name</label><input type="text" name="Name" id="name" placeholder="Full name" required></div>
@@ -994,36 +989,30 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
 const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Form submission via AJAX — never navigates away, never exposes email
+// Form: opens user's email client with all fields pre-filled
 (function(){
   var f=document.getElementById('inquiryForm');
   var p=['info','blueberrymountainfarms.com'];
-  var url='https://formsubmit.co/ajax/'+p[0]+'@'+p[1];
   f.addEventListener('submit', function(e) {
     e.preventDefault();
-    var btn = f.querySelector('.form-submit');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    fetch(url, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body: JSON.stringify(Object.fromEntries(new FormData(f)))
-    }).then(function(r){ return r.json(); }).then(function(data){
-      if(data.success){
-        btn.textContent = 'Sent! We\'ll be in touch soon.';
-        btn.style.background = 'var(--forest)';
-        f.reset();
-        setTimeout(function(){ btn.textContent='Send Inquiry'; btn.disabled=false; btn.style.background=''; }, 5000);
-      } else {
-        btn.textContent = 'Error — please email us directly';
-        btn.disabled = false;
-        setTimeout(function(){ btn.textContent='Send Inquiry'; }, 4000);
-      }
-    }).catch(function(){
-      btn.textContent = 'Error — please try again';
-      btn.disabled = false;
-      setTimeout(function(){ btn.textContent='Send Inquiry'; }, 4000);
-    });
+    var d=new FormData(f);
+    var name=d.get('Name')||'';
+    var email=d.get('Email')||'';
+    var phone=d.get('Phone')||'';
+    var dates=d.get('Dates')||'';
+    var guests=d.get('Group Size')||'';
+    var occasion=d.get('Occasion')||'';
+    var prop=d.get('Property Interest')||'';
+    var msg=d.get('Message')||'';
+    var subject='Inquiry from '+name+(prop?' — '+prop:'');
+    var body='Name: '+name+'\n'+'Email: '+email+'\n';
+    if(phone) body+='Phone: '+phone+'\n';
+    if(dates) body+='Dates: '+dates+'\n';
+    if(guests) body+='Group Size: '+guests+'\n';
+    if(occasion) body+='Occasion: '+occasion+'\n';
+    if(prop) body+='Property Interest: '+prop+'\n';
+    body+='\n'+(msg||'I\'d like to learn more about booking a stay.');
+    window.location.href='mailto:'+p[0]+'@'+p[1]+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
   });
 })();
 
