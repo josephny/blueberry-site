@@ -243,10 +243,13 @@ nav.scrolled {
 }
 .hero-slide.active { opacity: 1; }
 .hero-slide:nth-child(1) { background-image: url('images/hero-manor-exterior.jpeg'); }
-.hero-slide:nth-child(2) { background-image: url('images/hero-farmhouse.jpeg'); }
-.hero-slide:nth-child(3) { background-image: url('images/hero-pond-house.jpeg'); }
-.hero-slide:nth-child(4) { background-image: url('images/hero-oasis.jpg'); }
-.hero-slide:nth-child(5) { background-image: url('images/hero-nestled.jpeg'); }
+.hero-slide:nth-child(2) { background-image: url('images/farm/hiking-cliff-vista.jpg'); }
+.hero-slide:nth-child(3) { background-image: url('images/hero-farmhouse.jpeg'); }
+.hero-slide:nth-child(4) { background-image: url('images/farm/farm-rows-sunset.jpg'); }
+.hero-slide:nth-child(5) { background-image: url('images/hero-pond-house.jpeg'); }
+.hero-slide:nth-child(6) { background-image: url('images/farm/animals-eating-hay.jpg'); }
+.hero-slide:nth-child(7) { background-image: url('images/hero-oasis.jpg'); }
+.hero-slide:nth-child(8) { background-image: url('images/hero-nestled.jpeg'); }
 
 .hero-content {
   position: relative; z-index: 2; text-align: center;
@@ -359,6 +362,52 @@ section { padding: 6rem 2rem; }
 .overall-rating p { font-size: 0.95rem; color: var(--text-light); margin-top: 0.3rem; }
 .badge-row { display: flex; gap: 1rem; flex-wrap: wrap; }
 .badge { background: var(--cream); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; color: var(--deep-green); }
+
+/* FARM GALLERY */
+#farm { background: var(--cream); }
+.farm-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 220px 220px 220px;
+  gap: 0.6rem;
+  margin-top: 3rem;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.farm-gallery .farm-img { position: relative; overflow: hidden; border-radius: 8px; cursor: pointer; }
+.farm-gallery .farm-img:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.farm-gallery .farm-img:nth-child(6) { grid-column: span 2; }
+.farm-gallery .farm-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.farm-gallery .farm-img:hover img { transform: scale(1.05); }
+.farm-img-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 0.8rem 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  color: white; font-weight: 600; font-size: 0.85rem;
+}
+@media (max-width: 900px) {
+  .farm-gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 180px 180px 180px; }
+}
+@media (max-width: 600px) {
+  .farm-gallery { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .farm-gallery .farm-img { height: 220px; }
+  .farm-gallery .farm-img:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+  .farm-gallery .farm-img:nth-child(6) { grid-column: span 1; }
+}
+
+/* FLOATING INQUIRY BUTTON */
+.floating-cta {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99;
+  background: var(--gold); color: white;
+  padding: 0.9rem 1.8rem; border-radius: 50px;
+  font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; font-weight: 600;
+  text-decoration: none; letter-spacing: 0.05em;
+  box-shadow: 0 4px 20px rgba(200,169,110,0.5);
+  transition: all 0.3s ease;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.floating-cta:hover { background: #b89a5e; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,169,110,0.6); }
+.floating-cta svg { width: 18px; height: 18px; }
 
 /* GROUPS */
 #groups { background: var(--deep-green); color: white; position: relative; overflow: hidden; }
@@ -482,13 +531,14 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
 <body>
 
 <div class="urgency-banner">
-  <strong>Summer 2026:</strong> June, July, August and September filling up &mdash; book soon! <a href="#contact">Reserve your dates &rarr;</a>
+  <strong>June, July, August and September filling up</strong> &mdash; book soon! <a href="#contact">Reserve your dates &rarr;</a>
 </div>
 
 <nav id="navbar">
   <a href="#" class="nav-logo">Blueberry Mountain Farms</a>
   <ul class="nav-links" id="navLinks">
     <li><a href="#properties">Our Homes</a></li>
+    <li><a href="#farm">The Farm</a></li>
     <li><a href="#groups">Group Stays</a></li>
     <li><a href="#testimonials">Reviews</a></li>
     <li><a href="#experience">Things to Do</a></li>
@@ -500,6 +550,9 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
 <section class="hero">
   <div class="hero-slides">
     <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
     <div class="hero-slide"></div>
     <div class="hero-slide"></div>
     <div class="hero-slide"></div>
@@ -542,6 +595,8 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
           <img src="images/manor-kitchen.jpg" alt="Manor kitchen">
           <img src="images/manor-porch.jpeg" alt="Manor porch">
           <img src="images/manor-homepage.jpg" alt="Manor front view">
+          <img src="images/farm/feeding-cows-carrots.jpg" alt="Feed the farm animals">
+          <img src="images/farm/green-field.jpg" alt="Rolling green fields">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.98</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -565,6 +620,8 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
           <img src="images/farmhouse-bathroom.jpeg" alt="Farmhouse bathroom">
           <img src="images/farmhouse-treetop-bedroom.jpeg" alt="Treetop bedroom">
           <img src="images/farmhouse-homepage.jpg" alt="Farmhouse front">
+          <img src="images/farm/funny-cow.jpg" alt="Friendly cow on the farm">
+          <img src="images/farm/pony-closeup.jpg" alt="Adorable pony">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.94</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -585,8 +642,9 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
           <img src="images/pond-interior.jpeg" alt="Pond interior">
           <img src="images/pond-dining.jpeg" alt="Pond dining">
           <img src="images/pond-bedroom.jpeg" alt="Pond bedroom">
-
           <img src="images/pond-homepage.jpg" alt="Pond front">
+          <img src="images/farm/waterfall-swimming.jpg" alt="Swim at nearby waterfalls">
+          <img src="images/farm/horses-hay.jpg" alt="Horses on the farm">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 4.92</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -609,6 +667,8 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
           <img src="images/oasis-bedroom.jpeg" alt="Oasis bedroom">
           <img src="images/oasis-outdoor.jpg" alt="Oasis outdoor">
           <img src="images/oasis-homepage.jpg" alt="Oasis front">
+          <img src="images/farm/donkey-visit.jpg" alt="Visit the donkeys">
+          <img src="images/farm/harvest-box.jpg" alt="Fresh farm harvest">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -631,6 +691,8 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
           <img src="images/cozy-bedroom.jpeg" alt="Cozy bedroom">
           <img src="images/cozy-outdoor.jpeg" alt="Cozy outdoor">
           <img src="images/cozy-homepage.jpg" alt="Cozy front">
+          <img src="images/farm/donkeys-friendly.jpg" alt="Friendly donkeys">
+          <img src="images/farm/fire-pit.jpg" alt="Bonfire under the stars">
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
           <button class="gallery-nav next">&rsaquo;</button>
@@ -650,8 +712,9 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
           <img src="images/nestled-interior.jpeg" alt="Nestled interior">
           <img src="images/nestled-kitchen.jpeg" alt="Nestled kitchen">
           <img src="images/nestled-bedroom.jpeg" alt="Nestled bedroom">
-
           <img src="images/nestled-homepage.jpg" alt="Nestled front">
+          <img src="images/farm/greenhouse-tomatoes.jpg" alt="Pick tomatoes in the greenhouse">
+          <img src="images/farm/wild-turkeys-field.jpg" alt="Wildlife on the property">
           <div class="property-rating"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> 5.0</div>
           <div class="gallery-dots"></div>
           <button class="gallery-nav prev">&lsaquo;</button>
@@ -666,6 +729,28 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<section id="farm">
+  <div class="container">
+    <div class="reveal">
+      <div class="section-tag">Life on the Farm</div>
+      <h2 class="section-title">More than a place to stay</h2>
+      <p class="section-subtitle">A real working farm with animals to visit, vegetables to pick, and 300 acres of rolling hills, forests, and fields to explore.</p>
+    </div>
+    <div class="farm-gallery reveal">
+      <div class="farm-img"><img src="images/farm/animals-eating-hay.jpg" alt="Cows, goats, sheep and pony eating together"><div class="farm-img-label">Cows, goats, sheep &amp; ponies</div></div>
+      <div class="farm-img"><img src="images/farm/pony-closeup.jpg" alt="Friendly pony"><div class="farm-img-label">Meet the ponies</div></div>
+      <div class="farm-img"><img src="images/farm/greenhouse-tomatoes.jpg" alt="Picking tomatoes in the greenhouse"><div class="farm-img-label">Pick tomatoes in the greenhouse</div></div>
+      <div class="farm-img"><img src="images/farm/funny-cow.jpg" alt="Friendly cow"><div class="farm-img-label">The friendliest cows</div></div>
+      <div class="farm-img"><img src="images/farm/pumpkin-truck.jpg" alt="Pumpkin harvest"><div class="farm-img-label">Fall pumpkin harvest</div></div>
+      <div class="farm-img"><img src="images/farm/waterfall-family.jpg" alt="Family at waterfall"><div class="farm-img-label">Waterfalls &amp; swimming holes nearby</div></div>
+      <div class="farm-img"><img src="images/farm/fresh-corn.jpg" alt="Fresh corn from the garden"><div class="farm-img-label">Fresh corn from the garden</div></div>
+      <div class="farm-img"><img src="images/farm/donkey-visit.jpg" alt="Visiting the donkeys"><div class="farm-img-label">Visit the donkeys</div></div>
+      <div class="farm-img"><img src="images/farm/giant-tomato.jpg" alt="Giant heirloom tomato"><div class="farm-img-label">Giant heirloom tomatoes</div></div>
+      <div class="farm-img"><img src="images/farm/horses-hay.jpg" alt="Horses eating hay"><div class="farm-img-label">Horses on the property</div></div>
     </div>
   </div>
 </section>
@@ -761,11 +846,11 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
       <p class="section-subtitle">From morning hikes in the Catskills to evening bonfires under Sullivan County stars, every day feels full.</p>
     </div>
     <div class="exp-photo-grid reveal">
-      <div class="exp-photo"><img src="images/farmhouse-interior.jpeg" alt="Farm and animals"><div class="exp-photo-label">Visit the farm &amp; feed the animals</div></div>
-      <div class="exp-photo"><img src="images/pond-interior.jpeg" alt="Cozy gathering"><div class="exp-photo-label">Gather by the fire</div></div>
-      <div class="exp-photo"><img src="images/manor-living-room.jpg" alt="Living room"><div class="exp-photo-label">Spacious living rooms</div></div>
-      <div class="exp-photo"><img src="images/pond-dining.jpeg" alt="Dining"><div class="exp-photo-label">Cook &amp; dine together</div></div>
-      <div class="exp-photo"><img src="images/nestled-interior.jpeg" alt="Porch"><div class="exp-photo-label">Relax on the porch</div></div>
+      <div class="exp-photo"><img src="images/farm/feeding-cows-carrots.jpg" alt="Feeding cows carrots at the farm"><div class="exp-photo-label">Feed the animals &mdash; bring carrots!</div></div>
+      <div class="exp-photo"><img src="images/farm/fire-pit.jpg" alt="Fire pit under the stars"><div class="exp-photo-label">Bonfires &amp; s'mores every night</div></div>
+      <div class="exp-photo"><img src="images/farm/waterfall-swimming.jpg" alt="Swimming at local waterfall"><div class="exp-photo-label">Swim at nearby waterfalls</div></div>
+      <div class="exp-photo"><img src="images/farm/harvest-box.jpg" alt="Fresh farm harvest"><div class="exp-photo-label">Farm-fresh vegetables</div></div>
+      <div class="exp-photo"><img src="images/farm/hiking-cliff-vista.jpg" alt="Hiking in the Catskills"><div class="exp-photo-label">World-class hiking nearby</div></div>
     </div>
     <div class="experience-grid">
       <div class="exp-card reveal"><span class="exp-icon">&#x1F40E;</span><h4>Visit the Farm</h4><p>Horses, donkeys, mules, sheep, goats, and chickens. Walk over and feed the animals &mdash; bring carrots! Half a mile from most homes.</p></div>
@@ -824,11 +909,16 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
   </div>
 </section>
 
+<a href="#contact" class="floating-cta" id="floatingCta">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  Inquire Now
+</a>
+
 <footer>
   <div class="footer-brand">Blueberry Mountain Farms</div>
   <div class="footer-tagline">Six private, peaceful vacation homes on 300 secluded acres in the Sullivan County Catskills &mdash; Mountaindale &amp; Greenfield Park, NY</div>
   <div class="footer-links">
-    <a href="#properties">Our Homes</a><a href="#groups">Group Stays</a><a href="#testimonials">Reviews</a>
+    <a href="#properties">Our Homes</a><a href="#farm">The Farm</a><a href="#groups">Group Stays</a><a href="#testimonials">Reviews</a>
     <a href="#experience">Things to Do</a><a href="#contact">Inquire</a>
     <a href="https://www.airbnb.com/users/show/58255552" target="_blank">Airbnb</a>
   </div>
@@ -867,6 +957,28 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 // Set form action dynamically to prevent email scraping
 (function(){var f=document.getElementById('inquiryForm');var p=['info','blueberrymountainfarms.com'];f.action='https://formsubmit.co/'+p[0]+'@'+p[1];})();
+
+// Floating CTA: show after scrolling past hero, hide in contact section
+const floatingCta = document.getElementById('floatingCta');
+const contactSection = document.getElementById('contact');
+function updateFloatingCta() {
+  const scrollY = window.scrollY;
+  const contactTop = contactSection.offsetTop;
+  const contactBottom = contactTop + contactSection.offsetHeight;
+  if (scrollY > 600 && (scrollY + window.innerHeight < contactTop + 200)) {
+    floatingCta.style.opacity = '1';
+    floatingCta.style.pointerEvents = 'auto';
+    floatingCta.style.transform = 'translateY(0)';
+  } else {
+    floatingCta.style.opacity = '0';
+    floatingCta.style.pointerEvents = 'none';
+    floatingCta.style.transform = 'translateY(20px)';
+  }
+}
+floatingCta.style.transition = 'all 0.3s ease';
+floatingCta.style.opacity = '0';
+floatingCta.style.pointerEvents = 'none';
+window.addEventListener('scroll', updateFloatingCta);
 
 function prefillInquiry(propertyName) {
   document.getElementById('propertyInterest').value = propertyName;
