@@ -798,7 +798,7 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
           <a href="https://www.instagram.com/blueberrymountainfarms" target="_blank" class="btn btn-ghost" style="border-color: var(--sage); color: var(--deep-green);">Instagram (11K followers)</a>
         </div>
       </div>
-      <form class="contact-form reveal" id="inquiryForm" action="https://formsubmit.co/info@blueberrymountainfarms.com" method="POST">
+      <form class="contact-form reveal" id="inquiryForm" action="#" method="POST">
         <input type="hidden" name="_subject" value="New Inquiry from blueberrymountainfarms.com">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
@@ -864,6 +864,9 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
 
 const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Set form action dynamically to prevent email scraping
+(function(){var f=document.getElementById('inquiryForm');var p=['info','blueberrymountainfarms.com'];f.action='https://formsubmit.co/'+p[0]+'@'+p[1];})();
 
 function prefillInquiry(propertyName) {
   document.getElementById('propertyInterest').value = propertyName;
