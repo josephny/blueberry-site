@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Blueberry body -->
+  <circle cx="32" cy="36" r="24" fill="#4A5BA8"/>
+  <circle cx="32" cy="36" r="24" fill="url(#grad)"/>
+  <!-- Gradient for depth -->
+  <defs>
+    <radialGradient id="grad" cx="40%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#6B7FCC" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#4A5BA8" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#2C3570" stop-opacity="0.5"/>
+    </radialGradient>
+  </defs>
+  <!-- Bloom/calyx (the star-shaped top) -->
+  <circle cx="28" cy="16" r="3.5" fill="#3A6B5A"/>
+  <circle cx="36" cy="16" r="3.5" fill="#3A6B5A"/>
+  <circle cx="32" cy="13" r="3.5" fill="#3A6B5A"/>
+  <circle cx="25" cy="19" r="3" fill="#3A6B5A"/>
+  <circle cx="39" cy="19" r="3" fill="#3A6B5A"/>
+  <!-- Center of bloom -->
+  <circle cx="32" cy="17" r="2.5" fill="#2C4A3E"/>
+  <!-- Subtle highlight/shine -->
+  <ellipse cx="26" cy="30" rx="5" ry="7" fill="white" opacity="0.15" transform="rotate(-20 26 30)"/>
+</svg>
