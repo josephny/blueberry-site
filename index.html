@@ -1001,8 +1001,8 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     var data = new FormData(f);
     fetch('https://formspree.io/f/mykblezv', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body: JSON.stringify(Object.fromEntries(data))
+      headers: {'Accept': 'application/json'},
+      body: data
     }).then(function(r){ return r.json(); }).then(function(res){
       if(res.success){
         btn.textContent = 'Sent! We\u2019ll be in touch soon.';
