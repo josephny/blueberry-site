@@ -923,6 +923,7 @@ footer { background: var(--charcoal); color: rgba(255,255,255,0.6); padding: 3re
         </div>
       </div>
       <form class="contact-form reveal" id="inquiryForm" action="#" method="POST">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <input type="hidden" name="Property Interest" id="propertyInterest" value="">
         <div class="form-row">
           <div class="form-group"><label for="name">Your Name</label><input type="text" name="Name" id="name" placeholder="Full name" required></div>
@@ -989,30 +990,35 @@ document.querySelectorAll('[data-gallery]').forEach(gallery => {
 const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-// Form: opens user's email client with all fields pre-filled
+// Form: submit via Web3Forms AJAX — email never exposed, no activation needed
 (function(){
   var f=document.getElementById('inquiryForm');
-  var p=['info','blueberrymountainfarms.com'];
   f.addEventListener('submit', function(e) {
     e.preventDefault();
-    var d=new FormData(f);
-    var name=d.get('Name')||'';
-    var email=d.get('Email')||'';
-    var phone=d.get('Phone')||'';
-    var dates=d.get('Dates')||'';
-    var guests=d.get('Group Size')||'';
-    var occasion=d.get('Occasion')||'';
-    var prop=d.get('Property Interest')||'';
-    var msg=d.get('Message')||'';
-    var subject='Inquiry from '+name+(prop?' — '+prop:'');
-    var body='Name: '+name+'\n'+'Email: '+email+'\n';
-    if(phone) body+='Phone: '+phone+'\n';
-    if(dates) body+='Dates: '+dates+'\n';
-    if(guests) body+='Group Size: '+guests+'\n';
-    if(occasion) body+='Occasion: '+occasion+'\n';
-    if(prop) body+='Property Interest: '+prop+'\n';
-    body+='\n'+(msg||'I\'d like to learn more about booking a stay.');
-    window.location.href='mailto:'+p[0]+'@'+p[1]+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    var btn = f.querySelector('.form-submit');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    var data = new FormData(f);
+    fetch('https://formspree.io/f/mykblezv', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify(Object.fromEntries(data))
+    }).then(function(r){ return r.json(); }).then(function(res){
+      if(res.success){
+        btn.textContent = 'Sent! We\u2019ll be in touch soon.';
+        btn.style.background = 'var(--forest)';
+        f.reset();
+        setTimeout(function(){ btn.textContent='Send Inquiry'; btn.disabled=false; btn.style.background=''; }, 5000);
+      } else {
+        btn.textContent = 'Something went wrong \u2014 please try again';
+        btn.disabled = false;
+        setTimeout(function(){ btn.textContent='Send Inquiry'; }, 4000);
+      }
+    }).catch(function(){
+      btn.textContent = 'Connection error \u2014 please try again';
+      btn.disabled = false;
+      setTimeout(function(){ btn.textContent='Send Inquiry'; }, 4000);
+    });
   });
 })();
 
