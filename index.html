@@ -1004,7 +1004,7 @@ document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
       headers: {'Accept': 'application/json'},
       body: data
     }).then(function(r){ return r.json(); }).then(function(res){
-      if(res.success){
+      if(res.ok || res.success){
         btn.textContent = 'Sent! We\u2019ll be in touch soon.';
         btn.style.background = 'var(--forest)';
         f.reset();
